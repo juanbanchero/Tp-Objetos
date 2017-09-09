@@ -32,4 +32,9 @@ describe "Test primera entrega" {
 		luisAlberto.usarGuitarra(fender)
 		assert.equals(80, luisAlberto.habilidad())
 	}
+	
+	test "luis alberto toca con la gibson sana. Su habilidad es 100"{
+		luisAlberto.usarGuitarra(gibson)
+		assert.equals(100, luisAlberto.habilidad())
+	}
 }
