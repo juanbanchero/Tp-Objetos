@@ -28,4 +28,8 @@ describe "Test primera entrega" {
 		assert.equals(70, lucia.habilidad())
 	}	
 	
+	test "Luis alberto toca con la fender. Su habilidad es 80"{
+		luisAlberto.usarGuitarra(fender)
+		assert.equals(80, luisAlberto.habilidad())
+	}
 }
