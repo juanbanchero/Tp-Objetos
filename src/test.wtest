@@ -1,0 +1,46 @@
+import luisAlberto.*
+import lucia.*
+import joaquin.*
+import gibson.*
+import fender.*
+
+describe "Test primera entrega" {
+
+	test "Joaquin canta en el grupo Pimpinela. Su habilidad es 25" {
+		joaquin.cantar()
+		assert.equals(25, joaquin.habilidad())
+	}
+	
+	test "Joaquin canta en el grupo Pinpinela y decide iniciar su carrera como solista. Su habilidad es 20"{
+		joaquin.cantar()
+		joaquin.carreraSolista()
+		assert.equals(20, joaquin.habilidad())
+	}
+	
+	test "Lucía canta en el grupo Pimpinela. Su habilidad es 50" {
+		lucia.cantar()
+		assert.equals(50, lucia.habilidad())
+	}
+
+	test "Lucia canta en el grupo Pinpinela y decide iniciar su carrera como solista. Su habilidad es 70"{
+		lucia.cantar()
+		lucia.carreraSolista()
+		assert.equals(70, lucia.habilidad())
+	}	
+	
+	test "Luis alberto toca con la fender. Su habilidad es 80"{
+		luisAlberto.usarGuitarra(fender)
+		assert.equals(80, luisAlberto.habilidad())
+	}
+	
+	test "luis alberto toca con la gibson sana. Su habilidad es 100"{
+		luisAlberto.usarGuitarra(gibson)
+		assert.equals(100, luisAlberto.habilidad())
+	}
+	
+	test "luis alberto toca con la gibson maltratada. Su habilidad es 40"{
+		gibson.esMaltratada()
+		luisAlberto.usarGuitarra(gibson)
+		assert.equals(40, luisAlberto.habilidad())
+	}
+}
