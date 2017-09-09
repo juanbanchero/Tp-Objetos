@@ -18,6 +18,6 @@ object luisAlberto {
 		}
 		else {
 			return 1200
-		}
+		}  
 	}
 }

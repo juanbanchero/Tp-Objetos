@@ -1,0 +1,13 @@
+import luisAlberto.*
+import lucia.*
+import joaquin.*
+import gibson.*
+import fender.*
+
+describe "Test primera entrega" {
+
+	test "Joaquin canta en el grupo Pimpinela. Su habilidad es 25" {
+		joaquin.cantar()
+		assert.equals(25, joaquin.habilidad())
+	}
+}
