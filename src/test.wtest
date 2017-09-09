@@ -11,9 +11,14 @@ describe "Test primera entrega" {
 		assert.equals(25, joaquin.habilidad())
 	}
 	
-	test"Joaquin canta en el grupo Pinpinela y decide iniciar su carrera como solista. Su habilidad es 20"{
+	test "Joaquin canta en el grupo Pinpinela y decide iniciar su carrera como solista. Su habilidad es 20"{
 		joaquin.cantar()
 		joaquin.carreraSolista()
 		assert.equals(20, joaquin.habilidad())
+	}
+	
+	test "Lucía canta en el grupo Pimpinela. Su habilidad es 50" {
+		lucia.cantar()
+		assert.equals(50, lucia.habilidad())
 	}
 }
