@@ -1,12 +1,16 @@
 
 object laTrastienda {
-	var capacidad
-	
+
 	method esConcurrido(){
-		return capacidad > 5000
+		return false
 	}
-	method capacidad(unaCapacidad){
-		capacidad = unaCapacidad
+	method capacidad(unaFecha){
+		if(unaFecha.dayOfWeek() == 6){
+			return 700
+		}
+		else {
+			return 400
+		}
 	}
 
 }

@@ -4,18 +4,15 @@ import joaquin.*
 import lunaPark.*
 import laTrastienda.*
 
-class Presentacion {
-	var dia
-	var mes 
-	var agno 
+class Presentacion { 
 	var estadio
+	var fecha
 	var cantantes = #{lucia,luisAlberto,joaquin}
-	
+
+	 
 	constructor (unDia,unMes,unAgno,unEstadio){
-		dia = unDia
-		mes = unMes
 		estadio = unEstadio
-		agno = unAgno
+		fecha = new Date(unDia,unMes,unAgno)
 	}
 	method hayUnSoloCantante(){
 		return cantantes.size() == 1
@@ -27,7 +24,11 @@ class Presentacion {
 		return estadio.esConcurrido()
 	}
 	method esAntesDeSeptiembre2017(){
-		return mes < 9 && agno <= 2017
+	return fecha.month() < 09 && fecha.year() <= 2017
 	}
+	method capacidadEstadio(){
+		estadio.capacidad(fecha)
+	}
+	
 	
 }

@@ -1,8 +1,3 @@
-import fender.*
-import gibson.*
-import joaquin.*
-import lucia.*
-import Presentacion.*
 
 class Cancion {
 	var duracion 
