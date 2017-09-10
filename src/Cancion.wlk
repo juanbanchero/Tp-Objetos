@@ -11,6 +11,6 @@ class Cancion {
 		return duracion > 300
 	}
 	method diceFamilia(){
-		return letraDeCancion.contains("Familia") || letraDeCancion.contains("FAMILIA")
+		return letraDeCancion.contains("familia") || letraDeCancion.contains("FAMILIA")
 	}
 }
