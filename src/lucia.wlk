@@ -17,7 +17,7 @@ object lucia {
 		return (unaCancion.diceFamilia())
 	}
 	method costo(unaPresentacion) {
-		if(unaPresentacion.esEnLugarConcurrido()) {
+		if(unaPresentacion.esUnLugarConcurrido()) {
 			return 500
 		}
 		else {
