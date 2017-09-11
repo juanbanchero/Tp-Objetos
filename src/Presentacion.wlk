@@ -1,34 +1,23 @@
-import lucia.*
-import luisAlberto.*
+import Presentacion.*
 import joaquin.*
-import lunaPark.*
 import laTrastienda.*
+object presentacionModificada {
 
-class Presentacion { 
-	var estadio
-	var fecha
-	var cantantes = #{lucia,luisAlberto,joaquin}
+var cantantes = #{joaquin}
+var recital = new Presentacion(15,11,2017,laTrastienda)
 
-	 
-	constructor (unDia,unMes,unAgno,unEstadio){
-		estadio = unEstadio
-		fecha = new Date(unDia,unMes,unAgno)
-	}
 	method hayUnSoloCantante(){
 		return cantantes.size() == 1
 	}
 	method tocaSolo(unCantante){
 		return cantantes.contains(unCantante) && self.hayUnSoloCantante()
 	}	
+	
 	method esUnLugarConcurrido(){
-		return estadio.esConcurrido()
+		return recital.esConcurrido()
 	}
 	method esAntesDeSeptiembre2017(){
-	return fecha.month() < 09 && fecha.year() <= 2017
+	return recital.month() < 09 && recital.year() <= 2017
 	}
-	method capacidadEstadio(){
-		estadio.capacidad(fecha)
-	}
-	
-	
+
 }
