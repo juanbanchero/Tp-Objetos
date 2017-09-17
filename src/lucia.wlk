@@ -1,17 +1,15 @@
 object lucia {
-	var habilidad = 70
 	var estaEnGrupo = true
-	method habilidad() {
-		return habilidad
-	}
 	method cantar() {
 		if(estaEnGrupo) {
-			habilidad -= 20
+			return 50
+		}
+		else {
+			return 70
 		}
 	}
 	method carreraSolista() {
 		estaEnGrupo = false
-		habilidad = 70
 	}
 	method interpretaBien(unaCancion) {
 		return (unaCancion.diceFamilia())

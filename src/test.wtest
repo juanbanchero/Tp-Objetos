@@ -19,25 +19,21 @@ describe "Test primera entrega" {
     var costoLunaPark = joaquin.costo(presentacionLunaPark) + luisAlberto.costo(presentacionLunaPark) + lucia.costo(presentacionLunaPark)
 
 	test "Joaquin canta en el grupo Pimpinela. Su habilidad es 25" {
-		joaquin.cantar()
-		assert.equals(25, joaquin.habilidad())
+		assert.equals(25, joaquin.cantar())
 	}
 	
 	test "Joaquin canta en el grupo Pimpinela y decide iniciar su carrera como solista. Su habilidad es 20"{
-		joaquin.cantar()
 		joaquin.carreraSolista()
-		assert.equals(20, joaquin.habilidad())
+		assert.equals(20, joaquin.cantar())
 	}
 	
 	test "Lucía canta en el grupo Pimpinela. Su habilidad es 50" {
-		lucia.cantar()
-		assert.equals(50, lucia.habilidad())
+		assert.equals(50, lucia.cantar())
 	}
 
 	test "Lucia canta en el grupo Pimpinela y decide iniciar su carrera como solista. Su habilidad es 70"{
-		lucia.cantar()
 		lucia.carreraSolista()
-		assert.equals(70, lucia.habilidad())
+		assert.equals(70, lucia.cantar())
 	}	
 	
 	test "Luis Alberto toca con la fender. Su habilidad es 80"{
