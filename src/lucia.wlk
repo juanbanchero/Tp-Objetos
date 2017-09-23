@@ -1,12 +1,16 @@
 object lucia {
+	var habilidad = 70
 	var estaEnGrupo = true
-	method cantar() {
+	method restaHabilidad() {
 		if(estaEnGrupo) {
-			return 50
+			return 20
 		}
 		else {
-			return 70
+			return 0
 		}
+	}
+	method cantar() {
+		return habilidad - self.restaHabilidad()
 	}
 	method carreraSolista() {
 		estaEnGrupo = false

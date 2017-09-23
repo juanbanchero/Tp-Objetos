@@ -1,12 +1,16 @@
 object joaquin {
+	var habilidad = 20
 	var estaEnGrupo = true
-	method cantar() {
+	method sumaHabilidad() {
 		if(estaEnGrupo) {
-			return 25
+			return 5
 		}
 		else {
-			return 20
+			return 0
 		}
+	}
+	method cantar() {
+		return habilidad + self.sumaHabilidad()
 	}
 	method carreraSolista() {
 		estaEnGrupo = false
