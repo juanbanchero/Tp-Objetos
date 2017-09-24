@@ -24,5 +24,5 @@ class Album {
 	}
 	method tieneBuenasVentas(){
 		return 0.75 < cantidadVendidos/cantidadLanzados
-	}
+	}  
 }
