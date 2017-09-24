@@ -20,8 +20,8 @@ class MusicoSolista inherits Musico {
 	method cantar() {
 		return habilidad - self.restaHabilidad()
 	}
-	method carreraSolista() {
-		estaEnGrupo = false
+	method meterseEnGrupo() {
+		estaEnGrupo = true
 	}
 	method interpretaBien(unaCancion) {
 		return (unaCancion.dice(palabra))

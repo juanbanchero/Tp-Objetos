@@ -16,6 +16,10 @@ class Presentacion {
 	method hayUnSoloCantante(){
 		return cantantes.size() == 1
 	}
+	method soloTocaJoaquin(){
+		cantantes.remove(luisAlberto)
+		cantantes.remove(lucia)
+	}
 	method tocaSolo(unCantante){
 		return cantantes.contains(unCantante) && self.hayUnSoloCantante()
 	}	
@@ -28,6 +32,8 @@ class Presentacion {
 	method capacidadEstadio(){
 		estadio.capacidad(fecha)
 	}
-	
+	method recaudacion() {
+		return cantantes.sum({cantante => cantante.costo(self)})
+	}
 	
 }
