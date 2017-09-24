@@ -1,4 +1,4 @@
-import Musico.*
+import musico.*
 
 class MusicoSolista inherits Musico {
 
