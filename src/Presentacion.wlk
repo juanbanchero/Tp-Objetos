@@ -8,7 +8,6 @@ class Presentacion {
 	var estadio
 	var fecha
 	var cantantes = #{lucia,luisAlberto,joaquin}
-
 	 
 	constructor (unDia,unMes,unAgno,unEstadio){
 		estadio = unEstadio

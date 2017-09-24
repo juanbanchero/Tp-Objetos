@@ -1,10 +1,14 @@
-import musico.*
+import Musico.*
+
 class MusicoSolista inherits Musico {
-	var estaEnGrupo = false
+
 	var palabra
+	
 	constructor(unaHabilidad,albumesPublicados,unaPalabra) = super(unaHabilidad,albumesPublicados){
 		palabra = unaPalabra
+		estaEnGrupo = false
 	}
+	
 	method restaHabilidad() {
 		if(estaEnGrupo) {
 			return 20
@@ -30,9 +34,4 @@ class MusicoSolista inherits Musico {
 			return 400
 		}
 	}
-	method esMinimalista(){
-		return albumes.all({album => album.todasMenosDe180Segundos()})
-	}
-
-
 }

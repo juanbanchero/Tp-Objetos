@@ -1,7 +1,8 @@
 import fender.*
 import gibson.*
+import Musico.*
 
-object luisAlberto {
+object luisAlberto{
 	var guitarraEnUso
 	method usarGuitarra(unaGuitarra) {
 		guitarraEnUso = unaGuitarra

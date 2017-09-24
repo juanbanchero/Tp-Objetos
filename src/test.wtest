@@ -1,120 +1,75 @@
+import Album.*
 import Cancion.*
-import Presentacion.*
-import joaquin.*
-import lucia.*
-import luisAlberto.*
-import lunaPark.*
 import laTrastienda.*
-import PresentacionModificado.*
-import gibson.*
-import fender.*
+import lunaPark.*
+import Musico.*
+import MusicoEnGrupo.*
+import MusicoSolista.*
+import Presentacion.*
 
-describe "Test primera entrega" {
+describe "group of tests" {
 	
-	const laFamilia = new Cancion(264,"Quiero brindar por mi gente sencilla, por el amor brindo por la familia")
-	const cisne = new Cancion(312,"Hoy el viento se abrio quedo vacio el aire una vez mas y el manantial broto y nadie esta aqui y puedo ver que solo estallan las hojas al brillar")
-    var presentacionLunaPark = new Presentacion(20,04,2017,lunaPark)
-    var presentacionTrastienda = new Presentacion(15,11,2017,laTrastienda)
-    var costoTrastienda = joaquin.costo(presentacionTrastienda) + luisAlberto.costo(presentacionTrastienda) + lucia.costo(presentacionTrastienda)
-    var costoLunaPark = joaquin.costo(presentacionLunaPark) + luisAlberto.costo(presentacionLunaPark) + lucia.costo(presentacionLunaPark)
-
-	test "Joaquin canta en el grupo Pimpinela. Su habilidad es 25" {
-		assert.equals(25, joaquin.cantar())
+	var lucia
+	var joaquin
+	var luisAlberto
+	var kike
+	var soledad
+	var especialLaFamilia
+	var laFamilia
+	var laSole
+	var eres
+	var corazonAmericano
+	var paraLosArboles
+	var cisne
+	var almaDeDiamante
+	var justCrisantemo
+	var crisantemo
+	
+	fixture {
+		
+		laFamilia = new Cancion(264,"Quiero brindar por mi gente sencilla, por el amor brindo por la Familia")
+		eres = new Cancion(145,"Eres lo mejor que me paso en la vida, no tengo duda, no habra nada despues de ti. Eres lo que le dio brillo al dia a dia, y asi sera por siempre, no cambiara, hasta el final de mis dias")
+		corazonAmericano = new Cancion(154,"Canta corazon, canta mas alto, que tu pena al fin se va marchando, el nuevo milenio ha de encontrarnos, junto corazon, como soñamos")
+		cisne = new Cancion(312,"Hoy el viento se abrio quedo vacio el aire una vez mas y el manantial broto y nadie esta aqui y puedo ver que solo estallan las hojas al brillar")
+		almaDeDiamante = new Cancion(216,"Ven a mi con tu dulce luz alma de diamante. Y aunque el sol se nuble despues sos alma de diamante. Cielo o piel silencio o verdad sos alma de diamante. Por eso ven asi con la humanidad alma de diamante")
+		crisantemo = new Cancion(175,"Tocame junto a esta pared, yo quede por aqui, cuando no hubo mas luz... quiero mirar a traves de mi piel... Crisantemo, que se abrio... encuentra el camino hacia el cielo")
+		
+		especialLaFamilia = new Album(#{laFamilia},17,06,1992,100000,89000)
+		laSole = new Album(#{eres,corazonAmericano},04,02,2005,200000,130000)
+		paraLosArboles = new Album(#{cisne,almaDeDiamante},31,03,2003,50000,49000)
+		justCrisantemo = new Album({crisantemo},05,12,2007,28000,27500)
+		
+		joaquin = new MusicoEnGrupo(20,#{especialLaFamilia},5)
+		lucia = new MusicoSolista(70,#{},"Familia")
+		kike = new MusicoEnGrupo(60,#{},20)
+		soledad = new MusicoSolista(55,#{laSole},"amor")
+		// NO HECHO luisAlberto = new Musico(8,#{paraLosArboles,justCrisantemo})
+		
 	}
 	
-	test "Joaquin canta en el grupo Pimpinela y decide iniciar su carrera como solista. Su habilidad es 20"{
-		joaquin.carreraSolista()
-		assert.equals(20, joaquin.cantar())
+	test "La cancion Crisantemo es corta" {
+		assert.that(crisantemo.esCorta())
 	}
 	
-	test "Lucía canta en el grupo Pimpinela. Su habilidad es 50" {
-		assert.equals(50, lucia.cantar())
-	}
-
-	test "Lucia canta en el grupo Pimpinela y decide iniciar su carrera como solista. Su habilidad es 70"{
-		lucia.carreraSolista()
-		assert.equals(70, lucia.cantar())
-	}	
-	
-	test "Luis Alberto toca con la fender. Su habilidad es 80"{
-		luisAlberto.usarGuitarra(fender)
-		assert.equals(80, luisAlberto.habilidad())
+	test "La cancion Alma de Diamante no es corta" {
+		assert.that(!almaDeDiamante.esCorta())
 	}
 	
-	test "Luis Alberto toca con la gibson sana. Su habilidad es 100"{
-		luisAlberto.usarGuitarra(gibson)
-		assert.equals(100, luisAlberto.habilidad())
+	test "Soledad es minimalista" {
+		assert.that(soledad.esMinimalista())
 	}
 	
-	test "Luis Alberto toca con la gibson maltratada. Su habilidad es 40"{
-		gibson.esMaltratada()
-		luisAlberto.usarGuitarra(gibson)
-		assert.equals(40, luisAlberto.habilidad())
-	}
-    
-	test "Joaquin no interpreta bien la cancion ''La Familia'' " {
-		assert.notThat(joaquin.interpretaBien(laFamilia))
+		// NO HECHO test "Luis Alberto no es minimalista"
+	
+	test "Joaquin no es minimalista" {
+		assert.that(!joaquin.esMinimalista())
 	}
 	
-	test "Joaquin interpreta bien la cancion ''Cisne'' " {
-		assert.that(joaquin.interpretaBien(cisne))
-	}
+	// NO HECHO test "Crisantemo y Alma de Diamante son las canciones de Luis ALberto que dicen cielo"
 	
-	test "Lucia interpreta bien la cancion ''La Familia'' " {
-		assert.that(lucia.interpretaBien(laFamilia))
-	}
+	// NO HECHO test "Ninguna cancion de Luis Alberto dice pujante"
 	
-	test "Lucia no interpreta bien la cancion ''Cisne'' " {
-		assert.notThat(lucia.interpretaBien(cisne))
-	}
-	
-	test "Luis Alberto interpreta bien la cancion ''La Familia'' " {
-		assert.that(luisAlberto.interpretaBien(laFamilia))
-	}
-	
-	test "Luis Alberto interpreta bien la cancion ''Cisne'' " {
-		assert.that(luisAlberto.interpretaBien(cisne))
-	}
-	
-	test "Joaquin actua en el Luna Park en una fecha compartida y cobra 50" {
-	assert.equals(50,joaquin.costo(presentacionLunaPark))
-	}
-	
-	test "Joaquin actua solo en La Trastienda y cobra 100" {
-		assert.equals(100,joaquin.costo(presentacionModificada))
-	}
-	
-	test "La capacidad de La Trastienda para el 05/08/2017 es 700" {
-		var fecha = new Date (05,08,2017)
-		assert.equals(700,laTrastienda.capacidad(fecha))
-	}
-	
-	test "La capacidad de La Trastienda para el 08/08/2017 es 400" {
-		var fecha = new Date(08,08,2017)
-		assert.equals(400,laTrastienda.capacidad(fecha))
-	}
-	
-	test "Lucia cobra 400 por su presentacion es La Trastienda" {
-		assert.equals(400,lucia.costo(presentacionTrastienda))
-	}
-	
-	test "Lucia cobra 500 por su presentacion en el Luna Park" {
-		assert.equals(500,lucia.costo(presentacionLunaPark))
-	}
-	
-	test "Luis Alberto cobra 1200 por presentarse en La Trastienda" {
-		assert.equals(1200,luisAlberto.costo(presentacionTrastienda))
-	}
-	
-	test "Luis Alberto cobra 1000 por presentarse en el Luna Park" {
-		assert.equals(1000,luisAlberto.costo(presentacionLunaPark))
-	}
-	
-	test "El costo total del recital en La Trastienda asciende a 1650" {
-		assert.equals(1650,costoTrastienda)
-	}
-	
-	test "El costo total del recital en el Luna Park asciende a 1550" {
-		assert.equals(1550,costoLunaPark)
+	test "La obra de Kike dura 0 segundos" {
+		assert.equals(0,kike.duracionDeSuObra())
 	}
 }

@@ -1,10 +1,14 @@
-import musico.*
+import Musico.*
+
 class MusicoEnGrupo inherits Musico {
-	var estaEnGrupo = true
+	
 	var aumentoPorEstarEnGrupo
+	
 	constructor(unaHabilidad,albumesPublicados,unAumentoPorEstarEnGrupo) = super(unaHabilidad,albumesPublicados){
 		aumentoPorEstarEnGrupo = unAumentoPorEstarEnGrupo
+		estaEnGrupo = true
 	}
+	
 	method sumaHabilidad() {
 		if(estaEnGrupo) {
 			return aumentoPorEstarEnGrupo
@@ -30,8 +34,5 @@ class MusicoEnGrupo inherits Musico {
 			return 50
 		}
 	}
-	method esMinimalista(){
-		return albumes.all({album => album.todasMenosDe180Segundos()})
-
 
 }
