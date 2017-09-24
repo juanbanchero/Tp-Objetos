@@ -18,4 +18,7 @@ class Musico {
 	method duracionDeSuObra(){
 		return albumes.sum({album => album.duracionDelAlbum()})
 	}
+	method laPego(){
+		return albumes.all{album => album.tieneBuenasVentas()}
+	}
 }

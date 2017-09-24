@@ -22,4 +22,7 @@ class Album {
 	method duracionDelAlbum(){
 		return canciones.sum({cancion => cancion.duracion()})
 	}
+	method tieneBuenasVentas(){
+		return 0.75 < cantidadVendidos/cantidadLanzados
+	}
 }
