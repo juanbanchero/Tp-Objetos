@@ -11,7 +11,6 @@ describe "group of tests" {
 	
 	var lucia
 	var joaquin
-	var luisAlberto
 	var kike
 	var soledad
 	var especialLaFamilia
@@ -24,6 +23,8 @@ describe "group of tests" {
 	var almaDeDiamante
 	var justCrisantemo
 	var crisantemo
+	var presentacionLuna
+	var presentacionLaTrastienda
 	
 	fixture {
 		
@@ -45,7 +46,87 @@ describe "group of tests" {
 		soledad = new MusicoSolista(55,#{laSole},"amor")
 		// NO HECHO luisAlberto = new Musico(8,#{paraLosArboles,justCrisantemo})
 		
+		presentacionLuna = new Presentacion(20,04,2017,lunaPark)
+		presentacionLaTrastienda = new Presentacion(15,11,2017,laTrastienda)
+		
 	}
+	
+	/////// REGRESION DE TESTS DE LA PRIMERA ITERACION
+	
+	test "Joaquin canta en el grupo Pimpinela. Su habilidad es 25" {
+		assert.equals(25, joaquin.cantar())
+	}
+	
+	test "Joaquin canta en el grupo Pimpinela y decide iniciar su carrera como solista. Su habilidad es 20"{
+		joaquin.carreraSolista()
+		assert.equals(20, joaquin.cantar())
+	}
+	
+	test "Lucía se integra a Pimpinela. Su habilidad es de 50" {
+		lucia.meterseEnGrupo()
+		assert.equals(50, lucia.cantar())
+	}
+	
+	test "Lucía es una cantante solista. Su habilidad es de 70" {
+		assert.equals(70,lucia.cantar())
+	}
+	
+	/// HACER: test Luis Alberto toca con la Fender
+	/// HACER: test Luis Alberto toca con la Gibson sana
+	/// HACER: test Luis Alberto toca con la Gibson maltratada
+	
+	test "Joaquin no interpreta bien la cancion ''La Familia'' " {
+		assert.notThat(joaquin.interpretaBien(laFamilia))
+	}
+	
+	test "Joaquin interpreta bien la cancion ''Cisne'' " {
+		assert.that(joaquin.interpretaBien(cisne))
+	}
+	
+	test "Lucia interpreta bien la cancion ''La Familia'' " {
+		assert.that(lucia.interpretaBien(laFamilia))
+	}
+	
+	test "Lucia no interpreta bien la cancion ''Cisne'' " {
+		assert.notThat(lucia.interpretaBien(cisne))
+	}
+	
+	/// HACER: test Luis Alberto interpreta bien la cancion La Familia
+	/// HACER: test Luis Alberto interpreta bien la cancion Cisne
+	
+	test "Joaquin actua en el Luna Park en una fecha compartida y cobra 50" {
+		assert.equals(50,joaquin.costo(presentacionLuna))
+	}
+	
+	test "Joaquin actua solo en La Trastienda y cobra 100" {
+		presentacionLaTrastienda.soloTocaJoaquin()
+		assert.equals(100,joaquin.costo(presentacionLaTrastienda))
+	}
+	
+	test "La capacidad de La Trastienda para el 05/08/2017 es 700" {
+		var fecha = new Date (05,08,2017)
+		assert.equals(700,laTrastienda.capacidad(fecha))
+	}
+	
+	test "La capacidad de La Trastienda para el 08/08/2017 es 400" {
+		var fecha = new Date(08,08,2017)
+		assert.equals(400,laTrastienda.capacidad(fecha))
+	}
+	
+	test "Lucia cobra 400 por su presentacion es La Trastienda" {
+		assert.equals(400,lucia.costo(presentacionLaTrastienda))
+	}
+	
+	test "Lucia cobra 500 por su presentacion en el Luna Park" {
+		assert.equals(500,lucia.costo(presentacionLuna))
+	}
+	
+	/// HACER: test Luis ALberto cobra 1000 por presentarse en el Luna Park
+	/// HACER: test Luis ALberto cobra 1200 por presentarse en el Luna Park
+	/// HACER: test La presentacion del Luna Park recauda 1550 (falta modelar a Luis Alberto)
+	/// HACER: test La presentacion de La Trastienda recauda 1650 (falta modelar a Luis Alberto)
+	
+	/////// TESTS DE LA SEGUNDA ITERACION
 	
 	test "La cancion Crisantemo es corta" {
 		assert.that(crisantemo.esCorta())
