@@ -1,11 +1,15 @@
-import Album.*
+import album.*
 import Cancion.*
 import laTrastienda.*
 import lunaPark.*
-import Musico.*
-import MusicoEnGrupo.*
-import MusicoSolista.*
+import musico.*
+import musicoEnGrupo.*
+import musicoSolista.*
+import luisAlberto.*
 import Presentacion.*
+import fender.*
+import gibson.*
+
 
 describe "group of tests" {
 	
@@ -44,7 +48,7 @@ describe "group of tests" {
 		lucia = new MusicoSolista(70,#{},"Familia")
 		kike = new MusicoEnGrupo(60,#{},20)
 		soledad = new MusicoSolista(55,#{laSole},"amor")
-		// NO HECHO luisAlberto = new Musico(8,#{paraLosArboles,justCrisantemo})
+		luisAlberto = new Musico(8,#{paraLosArboles,justCrisantemo})
 		
 		presentacionLuna = new Presentacion(20,04,2017,lunaPark)
 		presentacionLaTrastienda = new Presentacion(15,11,2017,laTrastienda)
@@ -71,29 +75,46 @@ describe "group of tests" {
 		assert.equals(70,lucia.cantar())
 	}
 	
-	/// HACER: test Luis Alberto toca con la Fender
-	/// HACER: test Luis Alberto toca con la Gibson sana
-	/// HACER: test Luis Alberto toca con la Gibson maltratada
+	test "luisAlberto toca con la fender"{
+		luisAlberto.usarGuitarra(fender)
+		assert.equals(fender,luisAlberto.guitarraEnUso())
+	}
 	
-	test "Joaquin no interpreta bien la cancion ''La Familia'' " {
+	test "luisAlberto toca con la gibson sana"{
+		luisAlberto.usarGuitarra(gibson)
+		assert.equals(gibson,luisAlberto.guitarraEnUso())
+		assert.that(gibson.estaSana())
+	}
+	
+	test "luisAlberto toca con la gibson maltratada"{
+		luisAlberto.usarGuitarra(gibson)
+		gibson.esMaltratada()
+		assert.equals(gibson,luisAlberto.guitarraEnUso())
+		assert.that(!gibson.estaSana())
+	}
+	
+	test "Joaquin no interpreta bien la cancion 'La Familia' " {
 		assert.notThat(joaquin.interpretaBien(laFamilia))
 	}
 	
-	test "Joaquin interpreta bien la cancion ''Cisne'' " {
+	test "Joaquin interpreta bien la cancion 'Cisne' " {
 		assert.that(joaquin.interpretaBien(cisne))
 	}
 	
-	test "Lucia interpreta bien la cancion ''La Familia'' " {
+	test "Lucia interpreta bien la cancion 'La Familia' " {
 		assert.that(lucia.interpretaBien(laFamilia))
 	}
 	
-	test "Lucia no interpreta bien la cancion ''Cisne'' " {
+	test "Lucia no interpreta bien la cancion 'Cisne' " {
 		assert.notThat(lucia.interpretaBien(cisne))
 	}
 	
-	/// HACER: test Luis Alberto interpreta bien la cancion La Familia
-	/// HACER: test Luis Alberto interpreta bien la cancion Cisne
-	
+	test "luisALberto interpreta bien la cancion 'Cisne' " {
+		assert.that(luisAlberto.interpretaBien(cisne))
+	}
+	test "luisALberto interpreta bien la cancion 'La familia' " {
+		assert.that(luisAlberto.interpretaBien(laFamilia))
+	}	
 	test "Joaquin actua en el Luna Park en una fecha compartida y cobra 50" {
 		assert.equals(50,joaquin.costo(presentacionLuna))
 	}
@@ -140,7 +161,9 @@ describe "group of tests" {
 		assert.that(soledad.esMinimalista())
 	}
 	
-		// NO HECHO test "Luis Alberto no es minimalista"
+	test "luisAlberto no es minimalista"{
+		assert.that(!luisAlberto.esMinimalista())
+	}
 	
 	test "Joaquin no es minimalista" {
 		assert.that(!joaquin.esMinimalista())
