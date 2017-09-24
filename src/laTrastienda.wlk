@@ -1,4 +1,3 @@
-
 object laTrastienda {
 
 	method esConcurrido(){

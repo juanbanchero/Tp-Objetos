@@ -13,4 +13,13 @@ class Cancion {
 	method diceFamilia(){
 		return letraDeCancion.contains("familia") || letraDeCancion.contains("FAMILIA")
 	}
+	method cancionCorta(){
+		return duracion < 180
+	}
+	method dice(unaPalabra){
+		return letraDeCancion.contains(unaPalabra)
+	}
+	method duracion(){
+		return duracion
+	}
 }
