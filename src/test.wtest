@@ -29,7 +29,6 @@ describe "group of tests" {
 	var crisantemo
 	var presentacionLuna
 	var presentacionLaTrastienda
-	var luisAlberto
 	
 	fixture {
 		
