@@ -1,4 +1,4 @@
-import musico.*
+import Musico.*
 
 class MusicoEnGrupo inherits Musico {
 	

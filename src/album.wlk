@@ -27,7 +27,6 @@ class Album {
 	}  
 	
 	method cancionMasLarga() {
-		canciones.sortedBy({ cancion1, cancion2 => cancion1.duracion() > cancion2.duracion()})
-		canciones.first()
+		return canciones.max({cancion => cancion.duracion()})
 	}
 }

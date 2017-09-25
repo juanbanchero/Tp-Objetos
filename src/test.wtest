@@ -1,10 +1,10 @@
-import album.*
+import Album.*
 import Cancion.*
 import laTrastienda.*
 import lunaPark.*
-import musico.*
-import musicoEnGrupo.*
-import musicoSolista.*
+import Musico.*
+import MusicoEnGrupo.*
+import MusicoSolista.*
 import luisAlberto.*
 import Presentacion.*
 import fender.*
@@ -48,7 +48,8 @@ describe "group of tests" {
 		lucia = new MusicoSolista(70,#{},"Familia")
 		kike = new MusicoEnGrupo(60,#{},20)
 		soledad = new MusicoSolista(55,#{laSole},"amor")
-		luisAlberto = new Musico(8,#{paraLosArboles,justCrisantemo})
+		luisAlberto.agregarAlbum(paraLosArboles)
+		luisAlberto.agregarAlbum(justCrisantemo)
 		
 		presentacionLuna = new Presentacion(20,04,2017,lunaPark)
 		presentacionLaTrastienda = new Presentacion(15,11,2017,laTrastienda)
@@ -75,22 +76,25 @@ describe "group of tests" {
 		assert.equals(70,lucia.cantar())
 	}
 	
-	test "luisAlberto toca con la fender"{
+	test "Luis Alberto toca con la Fender. Su habilidad es de 80"{
 		luisAlberto.usarGuitarra(fender)
-		assert.equals(fender,luisAlberto.guitarraEnUso())
+		assert.equals(80,luisAlberto.habilidad())
 	}
 	
-	test "luisAlberto toca con la gibson sana"{
+	test "Luis Alberto toca con la Gibson sana. Su habilidad es de 100"{
 		luisAlberto.usarGuitarra(gibson)
-		assert.equals(gibson,luisAlberto.guitarraEnUso())
-		assert.that(gibson.estaSana())
+		assert.equals(100,luisAlberto.habilidad())
 	}
 	
-	test "luisAlberto toca con la gibson maltratada"{
-		luisAlberto.usarGuitarra(gibson)
+	test "Alguien maltrata a la Gibson, y ahora esta no está sana"{
 		gibson.esMaltratada()
-		assert.equals(gibson,luisAlberto.guitarraEnUso())
 		assert.that(!gibson.estaSana())
+	}
+	
+	test "Luis Alberto toca con la Gibson, la cual es maltratada. Su habilidad es de 40" {
+		gibson.esMaltratada()
+		luisAlberto.usarGuitarra(gibson)
+		assert.equals(40,luisAlberto.habilidad())
 	}
 	
 	test "Joaquin no interpreta bien la cancion 'La Familia' " {
@@ -199,11 +203,11 @@ describe "group of tests" {
 		assert.equals(703,luisAlberto.duracionDeSuObra())
 	}
 	
-	test "La cancion mas larga del disco ''Para los Arboles'' es Alma de Diamante" {
-		assert.equals(almaDeDiamante,paraLosArboles.cancionMasLarga())
+	test "La cancion mas larga del disco ''Para los Arboles'' es Alma de Diamante, de 216 segundos" {
+		assert.equals(216,paraLosArboles.cancionMasLarga())
 	}
 	
-	test "La cancion mas larga del disco ''La Sole'' es Eres" {
-		assert.equals(eres,laSole.cancionMasLarga())
+	test "La cancion mas larga del disco ''La Sole'' es Eres, de 145 segundos" {
+		assert.equals(145,laSole.cancionMasLarga())
 	}
 }

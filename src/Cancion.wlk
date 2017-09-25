@@ -19,7 +19,4 @@ class Cancion {
 	method dice(unaPalabra){
 		return letraDeCancion.contains(unaPalabra)
 	}
-	method diceFamilia(){
-		return (self.dice("familia") || self.dice("Familia"))
-	}
 }
