@@ -184,9 +184,15 @@ describe "group of tests" {
 		assert.that(!joaquin.esMinimalista())
 	}
 	
-	// NO HECHO test "Crisantemo y Alma de Diamante son las canciones de Luis ALberto que dicen cielo"
+	test "Crisantemo y Alma de Diamante son las canciones de Luis ALberto que dicen cielo" {
+		assert.equals(2,luisAlberto.queCancionesContienen("cielo").size())
+		assert.that(crisantemo.dice("cielo"))
+		assert.that(almaDeDiamante.dice("cielo"))
+	}
 	
-	// NO HECHO test "Ninguna cancion de Luis Alberto dice pujante"
+	test "Ninguna cancion de Luis Alberto dice pujante" {
+		assert.equals(0,luisAlberto.queCancionesContienen("pujante").size())
+	}
 	
 	test "La obra de Kike dura 0 segundos" {
 		assert.equals(0,kike.duracionDeSuObra())
@@ -200,11 +206,11 @@ describe "group of tests" {
 		assert.equals(703,luisAlberto.duracionDeSuObra())
 	}
 	
-	test "La cancion mas larga del disco ''Para los Arboles'' es Alma de Diamante, de 216 segundos" {
-		assert.equals(216,paraLosArboles.cancionMasLarga())
+	test "La cancion mas larga del disco ''Para los Arboles'' es Alma de Diamante" {
+		assert.equals(almaDeDiamante,paraLosArboles.cancionMasLarga())
 	}
 	
-	test "La cancion mas larga del disco ''La Sole'' es Eres, de 145 segundos" {
-		assert.equals(145,laSole.cancionMasLarga())
+	test "La cancion mas larga del disco ''La Sole'' es Eres" {
+		assert.equals(eres,laSole.cancionMasLarga())
 	}
 }
