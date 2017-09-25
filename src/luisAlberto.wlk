@@ -2,7 +2,7 @@ import fender.*
 import gibson.*
 import musico.*
 
-object luisAlberto inherits Musico(0,#{}){
+object luisAlberto inherits Musico(8,#{}){
 	
 	var guitarraEnUso
 	
@@ -13,7 +13,7 @@ object luisAlberto inherits Musico(0,#{}){
 		albumes.add(unAlbum)
 	}
 	method habilidad() {
-		return 100.min(8 * guitarraEnUso.precio())
+		return 100.min(habilidad * guitarraEnUso.precio())
 	}
 	method interpretaBien(unaCancion) {
 		return true
