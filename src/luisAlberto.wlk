@@ -1,6 +1,6 @@
 import fender.*
 import gibson.*
-import Musico.*
+import musico.*
 
 object luisAlberto inherits Musico(0,#{}){
 	

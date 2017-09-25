@@ -1,10 +1,10 @@
-import Album.*
+import album.*
 import Cancion.*
 import laTrastienda.*
 import lunaPark.*
-import Musico.*
-import MusicoEnGrupo.*
-import MusicoSolista.*
+import musico.*
+import musicoEnGrupo.*
+import musicoSolista.*
 import luisAlberto.*
 import Presentacion.*
 import fender.*
