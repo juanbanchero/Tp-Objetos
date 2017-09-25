@@ -29,6 +29,7 @@ describe "group of tests" {
 	var crisantemo
 	var presentacionLuna
 	var presentacionLaTrastienda
+
 	
 	fixture {
 		
@@ -42,7 +43,7 @@ describe "group of tests" {
 		especialLaFamilia = new Album(#{laFamilia},17,06,1992,100000,89000)
 		laSole = new Album(#{eres,corazonAmericano},04,02,2005,200000,130000)
 		paraLosArboles = new Album(#{cisne,almaDeDiamante},31,03,2003,50000,49000)
-		justCrisantemo = new Album({crisantemo},05,12,2007,28000,27500)
+		justCrisantemo = new Album(#{crisantemo},05,12,2007,28000,27500)
 		
 		joaquin = new MusicoEnGrupo(20,#{especialLaFamilia},5)
 		lucia = new MusicoSolista(70,#{},"Familia")
@@ -185,9 +186,10 @@ describe "group of tests" {
 	}
 	
 	test "Crisantemo y Alma de Diamante son las canciones de Luis ALberto que dicen cielo" {
-		assert.equals(2,luisAlberto.queCancionesContienen("cielo").size())
+		assert.equals(1,luisAlberto.queCancionesContienen("cielo").size())
+		assert.equals(1,luisAlberto.queCancionesContienen("Cielo").size())		
 		assert.that(crisantemo.dice("cielo"))
-		assert.that(almaDeDiamante.dice("cielo"))
+		assert.that(almaDeDiamante.dice("Cielo"))
 	}
 	
 	test "Ninguna cancion de Luis Alberto dice pujante" {
