@@ -214,4 +214,8 @@ describe "group of tests" {
 	test "Soledad no la pegó"{
 		assert.equals(false, soledad.laPego())
 	}
+	
+	test "Joaquin la pegó"{
+		assert.equals(true, joaquin.laPego())
+	}
 }
