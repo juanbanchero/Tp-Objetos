@@ -16,6 +16,9 @@ class Cancion {
 	method esCorta(){
 		return duracion < 180
 	}
+	method longitudDeLetra(){
+		return letraDeCancion.size()
+	}
 	method dice(unaPalabra){
 		return letraDeCancion.contains(unaPalabra)
 	}

@@ -25,8 +25,7 @@ class Album {
 	method tieneBuenasVentas(){
 		return 0.75 < cantidadVendidos/cantidadLanzados
 	}  
-	
 	method cancionMasLarga() {
-		return canciones.max({cancion => cancion.duracion()})
+		return canciones.max({cancion => cancion.longitudDeLetra()})
 	}
 }
