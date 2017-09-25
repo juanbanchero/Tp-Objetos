@@ -181,7 +181,7 @@ describe "group of tests" {
 	}
 	
 	test "Joaquin no es minimalista" {
-		assert.that(!joaquin.esMinimalista())
+		assert.notThat(joaquin.esMinimalista())
 	}
 	
 	// NO HECHO test "Crisantemo y Alma de Diamante son las canciones de Luis ALberto que dicen cielo"
@@ -210,5 +210,8 @@ describe "group of tests" {
 	
 	test "Luis Alberto la pegó"{
 		assert.equals(true, luisAlberto.laPego())
+	}
+	test "Soledad no la pegó"{
+		assert.equals(false, soledad.laPego())
 	}
 }
