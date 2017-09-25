@@ -7,7 +7,7 @@ import laTrastienda.*
 class Presentacion { 
 	var estadio
 	var fecha
-	var cantantes = #{lucia,joaquin}
+	var cantantes = #{lucia,luisAlberto,joaquin}
 	 
 	constructor (unDia,unMes,unAgno,unEstadio){
 		estadio = unEstadio

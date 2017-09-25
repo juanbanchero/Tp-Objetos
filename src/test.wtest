@@ -199,5 +199,11 @@ describe "group of tests" {
 		assert.equals(703,luisAlberto.duracionDeSuObra())
 	}
 	
-	test ""
+	test "La cancion mas larga del disco ''Para los Arboles'' es Alma de Diamante" {
+		assert.equals(almaDeDiamante,paraLosArboles.cancionMasLarga())
+	}
+	
+	test "La cancion mas larga del disco ''La Sole'' es Eres" {
+		assert.equals(eres,laSole.cancionMasLarga())
+	}
 }
