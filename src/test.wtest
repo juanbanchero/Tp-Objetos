@@ -1,10 +1,10 @@
-import album.*
+import Album.*
 import Cancion.*
 import laTrastienda.*
 import lunaPark.*
-import musico.*
-import musicoEnGrupo.*
-import musicoSolista.*
+import Musico.*
+import MusicoEnGrupo.*
+import MusicoSolista.*
 import luisAlberto.*
 import Presentacion.*
 import fender.*
@@ -29,6 +29,7 @@ describe "group of tests" {
 	var crisantemo
 	var presentacionLuna
 	var presentacionLaTrastienda
+	var luisAlberto
 	
 	fixture {
 		
@@ -181,7 +182,7 @@ describe "group of tests" {
 	}
 	
 	test "Joaquin no es minimalista" {
-		assert.notThat(joaquin.esMinimalista())
+		assert.that(!joaquin.esMinimalista())
 	}
 	
 	test "Crisantemo y Alma de Diamante son las canciones de Luis ALberto que dicen cielo" {
@@ -214,9 +215,13 @@ describe "group of tests" {
 		assert.equals(eres,laSole.cancionMasLarga())
 	}
 	
+	test "La cancion mas larga del disco ''Especial La Familia'' es La Familia" {
+		assert.equals(laFamilia,especialLaFamilia.cancionMasLarga())
+	}	
 	test "Luis Alberto la pegó"{
 		assert.equals(true, luisAlberto.laPego())
 	}
+	
 	test "Soledad no la pegó"{
 		assert.equals(false, soledad.laPego())
 	}
