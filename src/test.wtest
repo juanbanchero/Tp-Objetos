@@ -51,8 +51,8 @@ describe "group of tests" {
 		luisAlberto.agregarAlbum(paraLosArboles)
 		luisAlberto.agregarAlbum(justCrisantemo)
 		
-		presentacionLuna = new Presentacion(20,04,2017,lunaPark)
-		presentacionLaTrastienda = new Presentacion(15,11,2017,laTrastienda)
+		presentacionLuna = new Presentacion(20,04,2017,lunaPark,#{joaquin,lucia,luisAlberto})
+		presentacionLaTrastienda = new Presentacion(15,11,2017,laTrastienda,#{joaquin,lucia,luisAlberto})
 		
 	}
 	
@@ -161,9 +161,6 @@ describe "group of tests" {
 	test "La presentacion de La Trastienda recauda 1650" {
 		assert.equals(1650,presentacionLaTrastienda.recaudacion())
 	}
-	
-	/// HACER: test La presentacion del Luna Park recauda 1550 (falta modelar a Luis Alberto)
-	/// HACER: test La presentacion de La Trastienda recauda 1650 (falta modelar a Luis Alberto)
 	
 	/////// TESTS DE LA SEGUNDA ITERACION
 	

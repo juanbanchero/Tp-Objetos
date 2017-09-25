@@ -1,17 +1,16 @@
-import lucia.*
 import luisAlberto.*
-import joaquin.*
 import lunaPark.*
 import laTrastienda.*
 
 class Presentacion { 
 	var estadio
 	var fecha
-	var cantantes = #{lucia,luisAlberto,joaquin}
+	var cantantes
 	 
-	constructor (unDia,unMes,unAgno,unEstadio){
+	constructor (unDia,unMes,unAgno,unEstadio,listaDeCantantes){
 		estadio = unEstadio
 		fecha = new Date(unDia,unMes,unAgno)
+		cantantes = listaDeCantantes
 	}
 	method hayUnSoloCantante(){
 		return cantantes.size() == 1
