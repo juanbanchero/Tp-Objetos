@@ -7,7 +7,7 @@ import laTrastienda.*
 class Presentacion { 
 	var estadio
 	var fecha
-	var cantantes = #{lucia,luisAlberto,joaquin}
+	var cantantes = #{lucia,joaquin}
 	 
 	constructor (unDia,unMes,unAgno,unEstadio){
 		estadio = unEstadio
@@ -16,9 +16,9 @@ class Presentacion {
 	method hayUnSoloCantante(){
 		return cantantes.size() == 1
 	}
-	method soloTocaJoaquin(){
-		cantantes.remove(luisAlberto)
-		cantantes.remove(lucia)
+	method sePresentaSolo(unCantante) {
+		cantantes.removeAll(cantantes)
+		cantantes.add(unCantante)
 	}
 	method tocaSolo(unCantante){
 		return cantantes.contains(unCantante) && self.hayUnSoloCantante()

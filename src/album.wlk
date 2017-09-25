@@ -25,4 +25,7 @@ class Album {
 	method tieneBuenasVentas(){
 		return 0.75 < cantidadVendidos/cantidadLanzados
 	}  
-}
+	
+	method cancionMasLarga() = canciones.sortedBy({ cancion1, cancion2 => cancion1.duracion() < cancion2.duracion()})
+		
+	}

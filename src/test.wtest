@@ -55,8 +55,8 @@ describe "group of tests" {
 		
 	}
 	
-	/////// REGRESION DE TESTS DE LA PRIMERA ITERACION
-	
+	     //////// TESTS DE LA PRIMERA ITERACION
+	     
 	test "Joaquin canta en el grupo Pimpinela. Su habilidad es 25" {
 		assert.equals(25, joaquin.cantar())
 	}
@@ -120,7 +120,7 @@ describe "group of tests" {
 	}
 	
 	test "Joaquin actua solo en La Trastienda y cobra 100" {
-		presentacionLaTrastienda.soloTocaJoaquin()
+		presentacionLaTrastienda.sePresentaSolo(joaquin)
 		assert.equals(100,joaquin.costo(presentacionLaTrastienda))
 	}
 	
@@ -142,8 +142,22 @@ describe "group of tests" {
 		assert.equals(500,lucia.costo(presentacionLuna))
 	}
 	
-	/// HACER: test Luis ALberto cobra 1000 por presentarse en el Luna Park
-	/// HACER: test Luis ALberto cobra 1200 por presentarse en el Luna Park
+	test "Luis Alberto cobra 1000 por presentarse en el Luna Park" {
+		assert.equals(1000,luisAlberto.costo(presentacionLuna))
+	}
+	
+	test "Luis Alberto cobra 1200 por presentarse en La Trastienda" {
+		assert.equals(1200,luisAlberto.costo(presentacionLaTrastienda))
+	}
+	
+	test "La presentacion del Luna Park recauda 1550" {
+		assert.equals(1550,presentacionLuna.recaudacion())
+	}
+		
+	test "La presentacion de La Trastienda recauda 1650" {
+		assert.equals(1650,presentacionLaTrastienda.recaudacion())
+	}
+	
 	/// HACER: test La presentacion del Luna Park recauda 1550 (falta modelar a Luis Alberto)
 	/// HACER: test La presentacion de La Trastienda recauda 1650 (falta modelar a Luis Alberto)
 	
@@ -176,4 +190,14 @@ describe "group of tests" {
 	test "La obra de Kike dura 0 segundos" {
 		assert.equals(0,kike.duracionDeSuObra())
 	}
+	
+	test "La obra de Soledad dura 299 segundos" {
+		assert.equals(299,soledad.duracionDeSuObra())
+	}
+	
+	test "La obra de Luis Alberto dura 703 segundos" {
+		assert.equals(703,luisAlberto.duracionDeSuObra())
+	}
+	
+	test ""
 }
