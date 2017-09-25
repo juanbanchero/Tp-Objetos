@@ -29,11 +29,7 @@ describe "group of tests" {
 	var crisantemo
 	var presentacionLuna
 	var presentacionLaTrastienda
-<<<<<<< HEAD
-
-=======
 	var luisAlberto
->>>>>>> 4bf6453ff54ee442278f81ffb47b1a0097a41a00
 	
 	fixture {
 		
@@ -189,10 +185,19 @@ describe "group of tests" {
 		assert.that(!joaquin.esMinimalista())
 	}
 	
-	test "Crisantemo y Alma de Diamante son las canciones de Luis ALberto que dicen cielo" {
+	test "Una cancion de Luis Alberto dice cielo" {
 		assert.equals(1,luisAlberto.queCancionesContienen("cielo").size())
-		assert.equals(1,luisAlberto.queCancionesContienen("Cielo").size())		
+	}
+	
+	test "Una cancion de Luis Alberto dice Cielo" {
+		assert.equals(1,luisAlberto.queCancionesContienen("Cielo").size())
+	}
+	
+	test "Crisantemo, de Luis Alberto, dice cielo" {
 		assert.that(crisantemo.dice("cielo"))
+	}
+	
+	test "Alma de Diamante, de Luis Alberto, dice cielo" {
 		assert.that(almaDeDiamante.dice("Cielo"))
 	}
 	
