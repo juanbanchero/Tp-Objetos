@@ -24,7 +24,7 @@ class MusicoEnGrupo inherits Musico {
 		estaEnGrupo = false
 	}
 	method interpretaBien(unaCancion) {
-		return (unaCancion.duraMasDe300Segundos())
+		return (unaCancion.esLarga())
 	}
 	method costo(unaPresentacion) {
 		if(unaPresentacion.tocaSolo(self)) {

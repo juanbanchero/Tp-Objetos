@@ -10,7 +10,7 @@ class Cancion {
 	method duracion(){
 		return duracion
 	}
-	method duraMasDe300Segundos(){
+	method esLarga(){
 		return duracion > 300
 	}
 	method esCorta(){
@@ -21,5 +21,9 @@ class Cancion {
 	}
 	method dice(unaPalabra){
 		return letraDeCancion.contains(unaPalabra)
+	}
+	
+	method letra(){
+		return letraDeCancion
 	}
 }

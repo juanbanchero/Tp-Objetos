@@ -9,7 +9,7 @@ import luisAlberto.*
 import Presentacion.*
 import fender.*
 import gibson.*
-
+import remix.*
 
 describe "group of tests" {
 	
@@ -30,6 +30,7 @@ describe "group of tests" {
 	var presentacionLuna
 	var presentacionLaTrastienda
 	var luisAlberto
+	var remixLaFamilia
 	
 	fixture {
 		
@@ -39,6 +40,7 @@ describe "group of tests" {
 		cisne = new Cancion(312,"Hoy el viento se abrio quedo vacio el aire una vez mas y el manantial broto y nadie esta aqui y puedo ver que solo estallan las hojas al brillar")
 		almaDeDiamante = new Cancion(216,"Ven a mi con tu dulce luz alma de diamante. Y aunque el sol se nuble despues sos alma de diamante. Cielo o piel silencio o verdad sos alma de diamante. Por eso ven asi con la humanidad alma de diamante")
 		crisantemo = new Cancion(175,"Tocame junto a esta pared, yo quede por aqui, cuando no hubo mas luz... quiero mirar a traves de mi piel... Crisantemo, que se abrio... encuentra el camino hacia el cielo")
+		remixLaFamilia = new Remix(264,"Quiero brindar por mi gente sencilla, por el amor brindo por la Familia")
 		
 		especialLaFamilia = new Album(#{laFamilia},17,06,1992,100000,89000)
 		laSole = new Album(#{eres,corazonAmericano},04,02,2005,200000,130000)
@@ -238,5 +240,19 @@ describe "group of tests" {
 	
 	test "Joaquin la pegó"{
 		assert.equals(true, joaquin.laPego())
+	}
+	
+	/////// TEST DE LA TERCERA ITERACION
+
+	test "El remix de 'La Familia' dura 792 segundos"{
+		assert.equals(792, remixLaFamilia.duracion())
+	}
+	
+	test "El remix de 'La Familia' dice 'baby'"{
+		assert.that(remixLaFamilia.dice("baby"))
+	}
+	
+	test "El remix de 'La Familia' dice 'yeah'"{
+		assert.that(remixLaFamilia.dice("yeah"))
 	}
 }
