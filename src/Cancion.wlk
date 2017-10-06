@@ -2,8 +2,10 @@ class Cancion {
 	
 	var duracion 
 	var letraDeCancion
+	var titulo
 	
-	constructor (unaDuracion, unaLetraDeCancion){
+	constructor (unTitulo, unaDuracion, unaLetraDeCancion){
+		titulo = unTitulo
 		duracion = unaDuracion 
 		letraDeCancion = unaLetraDeCancion 
 	}
@@ -22,8 +24,13 @@ class Cancion {
 	method dice(unaPalabra){
 		return letraDeCancion.contains(unaPalabra)
 	}
-	
 	method letra(){
 		return letraDeCancion
+	}
+	method titulo(){
+		return titulo
+	}
+	method longitudTitulo(){
+		return titulo.size()
 	}
 }

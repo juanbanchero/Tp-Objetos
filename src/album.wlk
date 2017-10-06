@@ -1,4 +1,5 @@
 import Cancion.*
+import criterios.*
 
 class Album {
 	
@@ -13,6 +14,10 @@ class Album {
 		cantidadLanzados = unaCantidadLanzada
 		cantidadVendidos = unaCantidadVendida
 	}
+	
+	method canciones(){
+		return canciones
+	}
 	method todasSusCancionesSonCortas(){
 		return canciones.all({cancion => cancion.esCorta()})
 	}
@@ -24,8 +29,8 @@ class Album {
 	}
 	method tieneBuenasVentas(){
 		return 0.75 < cantidadVendidos/cantidadLanzados
-	}  
-	method cancionMasLarga() {
-		return canciones.max({cancion => cancion.longitudDeLetra()})
+	}
+	method mayorCancion(criterio){
+		criterio.ordenar(self.canciones())
 	}
 }

@@ -1,9 +1,10 @@
 import Cancion.*
+
 class Remix inherits Cancion {
 
-constructor (unaDuracion, unaLetra) = super(unaDuracion, unaLetra){
-	duracion *= 3
-	letraDeCancion = "mueve tu cuerpo baby" + letraDeCancion + " yeah oh yeah"
-}
-
+	constructor(unaCancion) = super(unaCancion.titulo(),unaCancion.duracion(),unaCancion.letra()){
+		duracion *= 3
+		letraDeCancion = "Mueve tu cuelpo baby. " + letraDeCancion + ". Yeah oh yeah"
+	}
+	
 }
