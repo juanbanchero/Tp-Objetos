@@ -5,7 +5,7 @@ object criterioPorDuracion{
 		return unasCanciones.max({cancion => cancion.duracion()})
 	}
 	method duracionMaxima(unasCanciones){
-		return unasCanciones.map({cancion => cancion.duracion()}).max()
+		return self.maximo(unasCanciones).duracion()
 	}
 }
 
