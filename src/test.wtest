@@ -3,6 +3,7 @@ import Cancion.*
 import criterios.*
 import laTrastienda.*
 import lunaPark.*
+import Mashup.*
 import musico.*
 import musicoEnGrupo.*
 import musicoSolista.*
@@ -31,6 +32,9 @@ describe "group of tests" {
 	var presentacionLuna
 	var presentacionLaTrastienda
 	var remixLaFamilia
+	var mashupAlmaDeDiamanteCrisantemo
+	var mashupCrisantemoAlmaDeDiamante
+	var mashupTriple
 	
 	fixture {
 		
@@ -41,6 +45,9 @@ describe "group of tests" {
 		almaDeDiamante = new Cancion("Alma De Diamante",216,"Ven a mi con tu dulce luz alma de diamante. Y aunque el sol se nuble despues sos alma de diamante. Cielo o piel silencio o verdad sos alma de diamante. Por eso ven asi con la humanidad alma de diamante")
 		crisantemo = new Cancion("Crisantemo",175,"Tocame junto a esta pared, yo quede por aqui, cuando no hubo mas luz... quiero mirar a traves de mi piel... Crisantemo, que se abrio... encuentra el camino hacia el cielo")
 		remixLaFamilia = new Remix(laFamilia)
+		mashupAlmaDeDiamanteCrisantemo = new Mashup(#{almaDeDiamante,crisantemo})
+		mashupCrisantemoAlmaDeDiamante = new Mashup(#{crisantemo,almaDeDiamante})
+		mashupTriple = new Mashup(#{eres,corazonAmericano,cisne})
 		
 		especialLaFamilia = new Album(#{laFamilia},17,06,1992,100000,89000)
 		laSole = new Album(#{eres,corazonAmericano},04,02,2005,200000,130000)
@@ -231,28 +238,48 @@ describe "group of tests" {
 		assert.equals(laFamilia,especialLaFamilia.mayorCancion(criterioPorLetra))
 	}	
 	test "Luis Alberto la pegó"{
-		assert.equals(true, luisAlberto.laPego())
+		assert.that(luisAlberto.laPego())
 	}
 	
 	test "Soledad no la pegó"{
-		assert.equals(false, soledad.laPego())
+		assert.that(!soledad.laPego())
 	}
 	
 	test "Joaquin la pegó"{
-		assert.equals(true, joaquin.laPego())
+		assert.that(joaquin.laPego())
 	}
 	
 	/////// TEST DE LA TERCERA ITERACION
 
-	test "El remix de 'La Familia' dura 792 segundos"{
+	test "La cancion con mayor duracion del album 'Para Los Arboles' es 'Cisne'" {
+		assert.equals(cisne,paraLosArboles.mayorCancion(criterioPorDuracion))
+	}
+	
+	test "La cancion con titulo mas largo del disco 'La Sole' es 'Corazon Americano'" {
+		assert.equals(corazonAmericano,laSole.mayorCancion(criterioPorTitulo))
+	}
+	
+	test "El remix de 'La Familia' dura 792 segundos" {
 		assert.equals(792, remixLaFamilia.duracion())
 	}
 	
-	test "El remix de 'La Familia' dice 'baby'"{
+	test "El remix de 'La Familia' dice 'baby'" {
 		assert.that(remixLaFamilia.dice("baby"))
 	}
 	
-	test "El remix de 'La Familia' dice 'yeah'"{
+	test "El remix de 'La Familia' dice 'yeah'" {
 		assert.that(remixLaFamilia.dice("yeah"))
+	}
+	
+	test "El mashup entre Eres, Corazon Americano y Cisne dura 312 segundos" {
+		assert.equals(312,mashupTriple.duracion())
+	}
+	
+	test "El mashup entre Alma de Diamante y Crisantemo tiene como titulo 'Alma de Diamante Crisantemo '" {
+		assert.equals("Alma De Diamante Crisantemo ",mashupAlmaDeDiamanteCrisantemo.titulo())
+	}
+	
+	test "El mashup entre Crisantemo y Alma de Diamante tiene como titulo 'Crisantemo Alma de Diamante '" {
+		assert.equals("Crisantemo Alma de Diamante",mashupCrisantemoAlmaDeDiamante.titulo())
 	}
 }

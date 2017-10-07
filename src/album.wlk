@@ -31,6 +31,6 @@ class Album {
 		return 0.75 < cantidadVendidos/cantidadLanzados
 	}
 	method mayorCancion(criterio){
-		return criterio.ordenar(self.canciones())
+		return criterio.maximo(self.canciones())
 	}
 }

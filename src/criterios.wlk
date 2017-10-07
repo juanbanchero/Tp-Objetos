@@ -1,19 +1,22 @@
 import Cancion.*
 
 object criterioPorDuracion{
-	method ordenar(unasCanciones){
+	method maximo(unasCanciones){
 		return unasCanciones.max({cancion => cancion.duracion()})
+	}
+	method duracionMaxima(unasCanciones){
+		return unasCanciones.map({cancion => cancion.duracion()}).max()
 	}
 }
 
 object criterioPorLetra{
-	method ordenar(unasCanciones){
+	method maximo(unasCanciones){
 		return unasCanciones.max({cancion => cancion.longitudDeLetra()})
 	}
 }
 
 object criterioPorTitulo{
-	method ordenar(unasCanciones){
+	method maximo(unasCanciones){
 		return unasCanciones.max({cancion => cancion.longitudTitulo()})
 	}
 }
