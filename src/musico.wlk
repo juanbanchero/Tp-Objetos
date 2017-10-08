@@ -32,5 +32,16 @@ class Musico {
 		return albumes.any({album => album.canciones().contains(unaCancion)})
 	}
 	
+	method tieneHabilidadNecesaria() {
+		
+		return habilidad >= 70	
+
+	}
+	
+	method tieneAlgunaCancion() {
+		
+		return albumes != #{}
+	}
+	
 	
 }

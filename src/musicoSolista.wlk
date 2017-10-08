@@ -36,20 +36,8 @@ class MusicoSolista inherits Musico {
 		}
 	}
 	
-    method tieneHabilidadNecesaria() {
-		
-		return habilidad >= 70	
-
-	}
-	
-	method tieneAlgunaCancion() {
-		
-		return albumes != #{}
-
-}
-	
 	method puedeTocar() {
-    	
-    	return self.tieneHabilidadNecesaria() && self.tieneAlgunaCancion() && self.interpretaBien(cancionDeAliciaEnElPais)
-     }
+		
+		return self.tieneHabilidadNecesaria() && self.tieneAlgunaCancion() && self.interpretaBien(cancionDeAliciaEnElPais)
+	}
 }
