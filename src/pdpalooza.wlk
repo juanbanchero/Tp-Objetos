@@ -9,8 +9,6 @@ import NoPuedeTocar.*
 
 object pdpalooza inherits Presentacion(15,12,2017,lunaPark,#{}) {
 	
-	var cancionDeAliciaEnElPais
-	
 	method agregarMusico(unMusico) {			
 		
 		if(unMusico.puedeTocar()) {

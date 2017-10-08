@@ -26,4 +26,9 @@ object luisAlberto inherits Musico(8,#{}){
 			return 1200
 		}  
 	}
+	
+	method puedeTocar() {
+		
+		return self.tieneHabilidadNecesaria() && self.tieneAlgunaCancion() && self.interpretaBien(cancionDeAliciaEnElPais)
+	}
 }

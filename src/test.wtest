@@ -12,6 +12,7 @@ import Presentacion.*
 import fender.*
 import gibson.*
 import remix.*
+import pdpalooza.*
 
 describe "group of tests" {
 	
@@ -290,5 +291,19 @@ describe "group of tests" {
 	
 	test "La duración del mashup entre Eres, Corazón Americano y Cisne es 312"{
 		assert.equals(312, mashupTriple.duracion())
+	}
+	
+		test "Un musico con habilidad menor a 70 no puede tocar en Pdpalooza" {
+		assert.throwsExceptionWithMessage("El musico no tiene la habilidad necesaria para presentarse", {pdpalooza.agregarMusico(kike)})
+	}
+	
+	test "Un musico sin ninguna cancion de su autoria no tocar en Pdpalooza" {
+		assert.throwsExceptionWithMessage("El musico no tiene ninguna cancion de su autoria", {pdpalooza.agregarMusico(lucia)})
+	}
+
+	test "Un musico con habilidad mayor a 70 y que tenga alguna cancion editada puede participar del Pdpalooza" {
+		//// si se cumple la primer condicion, se cumple que puede interpretar Cancion de Alicia en el Pais
+		var juanBanchero = new MusicoEnGrupo(70,#{justCrisantemo},10)
+		assert.that(juanBanchero.puedeTocar())
 	}
 }
