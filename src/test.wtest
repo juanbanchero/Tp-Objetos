@@ -112,8 +112,8 @@ describe "group of tests" {
 		assert.equals(40,luisAlberto.habilidad())
 	}
 	
-	test "Joaquin no interpreta bien la cancion 'La Familia' " {
-		assert.notThat(joaquin.interpretaBien(laFamilia))
+	test "Joaquin interpreta bien la cancion 'La Familia' " {
+		assert.that(joaquin.interpretaBien(laFamilia))
 	}
 	
 	test "Joaquin interpreta bien la cancion 'Cisne' " {
@@ -124,8 +124,8 @@ describe "group of tests" {
 		assert.that(lucia.interpretaBien(laFamilia))
 	}
 	
-	test "Lucia no interpreta bien la cancion 'Cisne' " {
-		assert.notThat(lucia.interpretaBien(cisne))
+	test "Lucia interpreta bien la cancion 'Cisne' " {
+		assert.that(lucia.interpretaBien(cisne))
 	}
 	
 	test "luisALberto interpreta bien la cancion 'Cisne' " {
@@ -280,11 +280,15 @@ describe "group of tests" {
 		assert.equals(312,mashupTriple.duracion())
 	}
 	
-	test "La letra del mashup entre Alma de Diamante y Crisantemo es ''" {
+	test "La letra del mashup entre Alma de Diamante y Crisantemo es la combinación de ambas letras en ese orden" {
 		assert.equals(letraAlmaDiamanteCrisantemo,mashupAlmaDeDiamanteCrisantemo.letra())
 	}
 	
-	test "El mashup entre Crisantemo y Alma de Diamante tiene como titulo 'Crisantemo Alma de Diamante '" {
-		assert.equals(letraCrisantemoAlmaDiamante,mashupCrisantemoAlmaDeDiamante.letra())
+	test "La letra del mashup entre Crisantemo y Alma de Diamante es distinta que la del mashup de Alma de diamante y Crisantemo" {
+		assert.notEquals(mashupAlmaDeDiamanteCrisantemo.letra(),mashupCrisantemoAlmaDeDiamante.letra())
+	}
+	
+	test "La duración del mashup entre Eres, Corazón Americano y Cisne es 312"{
+		assert.equals(312, mashupTriple.duracion())
 	}
 }
