@@ -33,7 +33,7 @@ class Cancion {
 	method longitudTitulo(){
 		return titulo.size()
 	}
-	method tituloParaConcatenar(){
-		return titulo + ' '
+	method letraParaConcatenar(){
+		return letraDeCancion + ' '
 	}
 }

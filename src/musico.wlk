@@ -21,4 +21,10 @@ class Musico {
 	method laPego(){
 		return albumes.all{album => album.tieneBuenasVentas()}
 	}
+	method esHabilidoso(){
+		return habilidad > 60
+	}
+	method esDeSuAutoria(unaCancion){
+		return albumes.any({album => album.canciones().contains(unaCancion)})
+	}
 }

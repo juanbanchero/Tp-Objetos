@@ -24,7 +24,7 @@ class MusicoSolista inherits Musico {
 		estaEnGrupo = true
 	}
 	method interpretaBien(unaCancion) {
-		return (unaCancion.dice(palabra))
+		return (unaCancion.dice(palabra)) || self.esDeSuAutoria(unaCancion) || self.esHabilidoso()
 	}
 	method costo(unaPresentacion) {
 		if(unaPresentacion.esUnLugarConcurrido()) {
@@ -34,4 +34,5 @@ class MusicoSolista inherits Musico {
 			return 400
 		}
 	}
+
 }

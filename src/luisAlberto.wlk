@@ -16,7 +16,7 @@ object luisAlberto inherits Musico(8,#{}){
 		return 100.min(habilidad * guitarraEnUso.precio())
 	}
 	method interpretaBien(unaCancion) {
-		return true
+		return true || self.esDeSuAutoria(unaCancion) || self.esHabilidoso()
 	}
 	method costo(unaPresentacion) {
 		if (unaPresentacion.esAntesDeSeptiembre2017()) {

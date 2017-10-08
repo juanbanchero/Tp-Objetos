@@ -276,10 +276,32 @@ describe "group of tests" {
 	}
 	
 	test "El mashup entre Alma de Diamante y Crisantemo tiene como titulo 'Alma de Diamante Crisantemo '" {
-		assert.equals("Alma De Diamante Crisantemo ",mashupAlmaDeDiamanteCrisantemo.titulo())
+		assert.equals("Alma De Diamante Crisantemo ",mashupAlmaDeDiamanteCrisantemo.letra())
 	}
 	
 	test "El mashup entre Crisantemo y Alma de Diamante tiene como titulo 'Crisantemo Alma de Diamante '" {
 		assert.equals("Crisantemo Alma de Diamante",mashupCrisantemoAlmaDeDiamante.titulo())
 	}
+	
+	test "Joaquin interpretaBien la cancion laFamilia porque es de un album de su autoria"{
+		assert.that(joaquin.interpretaBien(laFamilia))
+	}
+	
+	test "Lucia interpretaBien cualquier cancion"{
+		assert.that(lucia.interpretaBien(eres))
+		assert.that(lucia.interpretaBien(crisantemo))
+		assert.that(lucia.interpretaBien(cisne))
+		assert.that(lucia.interpretaBien(corazonAmericano))
+		assert.that(lucia.interpretaBien(laFamilia))
+		assert.that(lucia.interpretaBien(almaDeDiamante))
+	}
+
+	test "kike (musico de grupo) interpretaBien una cancion que dure mas de 300 segundos"{
+		assert.that(kike.interpretaBien(cisne))
+	}
+	
+	test "sole (musica solista) interpretaBien una cancion que contenga 'amor'"{
+		assert.that(soledad.interpretaBien(corazonAmericano))
+	}
+
 }

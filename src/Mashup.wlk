@@ -5,7 +5,7 @@ class Mashup inherits Cancion{
 	
 	constructor(unasCanciones) = super(null,null, null) {
 		duracion = criterioPorDuracion.duracionMaxima(unasCanciones)
-		titulo = unasCanciones.forEach({cancion => cancion.tituloParaConcatenar()})
+		letraDeCancion = unasCanciones.map({cancion => cancion.letra()})
 	}
 	
 }
