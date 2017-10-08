@@ -1,4 +1,5 @@
 import musico.*
+import Cancion.*
 
 class MusicoEnGrupo inherits Musico {
 	
@@ -35,4 +36,10 @@ class MusicoEnGrupo inherits Musico {
 			return 50
 		}
 	}
+	
+	method puedeTocar() {
+		
+		return self.tieneHabilidadNecesaria() && self.tieneAlgunaCancion() && self.interpretaBien(cancionDeAliciaEnElPais)
+	}
+	
 }
