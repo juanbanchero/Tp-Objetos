@@ -1,4 +1,5 @@
 import musico.*
+import Cancion.*
 
 class MusicoSolista inherits Musico {
 
@@ -34,5 +35,21 @@ class MusicoSolista inherits Musico {
 			return 400
 		}
 	}
+	
+    method tieneHabilidadNecesaria() {
+		
+		return habilidad >= 70	
 
+	}
+	
+	method tieneAlgunaCancion() {
+		
+		return albumes != #{}
+
+}
+	
+	method puedeTocar() {
+    	
+    	return self.tieneHabilidadNecesaria() && self.tieneAlgunaCancion() && self.interpretaBien(cancionDeAliciaEnElPais)
+     }
 }
