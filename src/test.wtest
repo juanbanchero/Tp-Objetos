@@ -45,8 +45,8 @@ describe "group of tests" {
 		almaDeDiamante = new Cancion("Alma De Diamante",216,"Ven a mi con tu dulce luz alma de diamante. Y aunque el sol se nuble despues sos alma de diamante. Cielo o piel silencio o verdad sos alma de diamante. Por eso ven asi con la humanidad alma de diamante")
 		crisantemo = new Cancion("Crisantemo",175,"Tocame junto a esta pared, yo quede por aqui, cuando no hubo mas luz... quiero mirar a traves de mi piel... Crisantemo, que se abrio... encuentra el camino hacia el cielo")
 		remixLaFamilia = new Remix(laFamilia)
-		mashupAlmaDeDiamanteCrisantemo = new Mashup(#{almaDeDiamante,crisantemo})
-		mashupCrisantemoAlmaDeDiamante = new Mashup(#{crisantemo,almaDeDiamante})
+		mashupAlmaDeDiamanteCrisantemo = new Mashup([almaDeDiamante,crisantemo])
+		mashupCrisantemoAlmaDeDiamante = new Mashup([crisantemo,almaDeDiamante])
 		mashupTriple = new Mashup(#{eres,corazonAmericano,cisne})
 		
 		especialLaFamilia = new Album(#{laFamilia},17,06,1992,100000,89000)
@@ -276,32 +276,10 @@ describe "group of tests" {
 	}
 	
 	test "El mashup entre Alma de Diamante y Crisantemo tiene como titulo 'Alma de Diamante Crisantemo '" {
-		assert.equals("Alma De Diamante Crisantemo ",mashupAlmaDeDiamanteCrisantemo.letra())
+		assert.equals("Alma De Diamante Crisantemo ",mashupAlmaDeDiamanteCrisantemo.titulo())
 	}
 	
 	test "El mashup entre Crisantemo y Alma de Diamante tiene como titulo 'Crisantemo Alma de Diamante '" {
 		assert.equals("Crisantemo Alma de Diamante",mashupCrisantemoAlmaDeDiamante.titulo())
 	}
-	
-	test "Joaquin interpretaBien la cancion laFamilia porque es de un album de su autoria"{
-		assert.that(joaquin.interpretaBien(laFamilia))
-	}
-	
-	test "Lucia interpretaBien cualquier cancion"{
-		assert.that(lucia.interpretaBien(eres))
-		assert.that(lucia.interpretaBien(crisantemo))
-		assert.that(lucia.interpretaBien(cisne))
-		assert.that(lucia.interpretaBien(corazonAmericano))
-		assert.that(lucia.interpretaBien(laFamilia))
-		assert.that(lucia.interpretaBien(almaDeDiamante))
-	}
-
-	test "kike (musico de grupo) interpretaBien una cancion que dure mas de 300 segundos"{
-		assert.that(kike.interpretaBien(cisne))
-	}
-	
-	test "sole (musica solista) interpretaBien una cancion que contenga 'amor'"{
-		assert.that(soledad.interpretaBien(corazonAmericano))
-	}
-
 }

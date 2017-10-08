@@ -3,9 +3,9 @@ import criterios.*
 
 class Mashup inherits Cancion{
 	
-	constructor(unasCanciones) = super(null,null, null) {
+	constructor(unasCanciones) = super("Mashup",null, null) {
 		duracion = criterioPorDuracion.duracionMaxima(unasCanciones)
-		letraDeCancion = unasCanciones.map({cancion => cancion.letra()})
+		letraDeCancion = unasCanciones.map({cancion => cancion.letraParaConcatenar()})
 	}
 	
 }
