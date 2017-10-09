@@ -33,4 +33,7 @@ class Album {
 	method mayorCancion(criterio){
 		return criterio.maximo(self.canciones())
 	}
+	method poseeLaCancion(unaCancion){
+		return canciones.contains(unaCancion)
+	}
 }

@@ -255,7 +255,7 @@ describe "group of tests" {
 		assert.that(joaquin.laPego())
 	}
 	
-	/////// TEST DE LA TERCERA ITERACION
+	/////// TESTS DE LA TERCERA ITERACION
 
 	test "La cancion con mayor duracion del album 'Para Los Arboles' es 'Cisne'" {
 		assert.equals(cisne,paraLosArboles.mayorCancion(criterioPorDuracion))

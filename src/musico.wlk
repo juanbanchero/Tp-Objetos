@@ -1,4 +1,3 @@
-
 import Cancion.*
 
 class Musico {
@@ -31,17 +30,16 @@ class Musico {
 	method esDeSuAutoria(unaCancion){
 		return albumes.any({album => album.canciones().contains(unaCancion)})
 	}
-	
 	method tieneHabilidadNecesaria() {
-		
 		return habilidad >= 70	
-
 	}
-	
-	method tieneAlgunaCancion() {
-		
+	method tieneAlgunaCancion() {		
 		return albumes != #{}
 	}
-	
-	
+	method interpretaBien(unaCancion){
+		return self.esHabilidoso() || self.esDeSuAutoria(unaCancion)
+	}
+	method puedeTocar() {
+		return self.tieneHabilidadNecesaria() && self.tieneAlgunaCancion() && self.interpretaBien(cancionDeAliciaEnElPais)
+	}
 }

@@ -25,8 +25,8 @@ class MusicoEnGrupo inherits Musico {
 		estaEnGrupo = false
 	}
 	
-	method interpretaBien(unaCancion) {
-		return (unaCancion.esLarga()) || self.esDeSuAutoria(unaCancion) || self.esHabilidoso()
+	override method interpretaBien(unaCancion) {
+		return super(unaCancion) || unaCancion.esLarga()
 	}
 	method costo(unaPresentacion) {
 		if(unaPresentacion.tocaSolo(self)) {
@@ -36,10 +36,4 @@ class MusicoEnGrupo inherits Musico {
 			return 50
 		}
 	}
-	
-	method puedeTocar() {
-		
-		return self.tieneHabilidadNecesaria() && self.tieneAlgunaCancion() && self.interpretaBien(cancionDeAliciaEnElPais)
-	}
-	
 }

@@ -1,2 +1,1 @@
-
 class NoPuedeTocar inherits Exception{}
