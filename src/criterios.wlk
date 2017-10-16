@@ -1,4 +1,3 @@
-
 class Criterio{
 	method maximo(unasCanciones){
 		return unasCanciones.max({cancion => self.aplicarCriterio(cancion)})

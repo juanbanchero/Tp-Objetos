@@ -1,9 +1,12 @@
-import Cancion.*
+import Tema.*
 import criterios.*
 
-class Mashup inherits Cancion{
+class Mashup inherits Tema{
 	
-	constructor(unasCanciones) = super("Mashup",null, null) {
+	var cancionesMashupeadas
+	
+	constructor(unasCanciones){
+		cancionesMashupeadas = unasCanciones
 		duracion = criterioPorDuracion.duracionMaxima(unasCanciones)
 		letraDeCancion = self.unirLetras(unasCanciones)
 	}

@@ -1,10 +1,13 @@
-import Cancion.*
+import Tema.*
 
-class Remix inherits Cancion {
+class Remix inherits Tema {
 
-	constructor(unaCancion) = super(unaCancion.titulo(),unaCancion.duracion(),unaCancion.letra()){
-		duracion *= 3
-		letraDeCancion = "Mueve tu cuelpo baby. " + letraDeCancion + ". Yeah oh yeah"
+	var cancionRemixeada
+	
+	constructor(unaCancion){
+		cancionRemixeada = unaCancion
+		duracion = unaCancion.duracion() * 3
+		letraDeCancion = "Mueve tu cuelpo baby. " + unaCancion.letraDeCancion() + ". Yeah oh yeah"
 	}
 	
 }
