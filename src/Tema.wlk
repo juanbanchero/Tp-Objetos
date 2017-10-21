@@ -6,11 +6,17 @@ class Tema{
 	method duracion(){
 		return duracion
 	}
+	method duraMasDe(unosSegundos){
+		return duracion > unosSegundos
+	}
 	method esLarga(){
-		return duracion > 300
+		return self.duraMasDe(300)
 	}
 	method esCorta(){
-		return duracion < 180
+		return (!self.duraMasDe(180))
+	}
+	method esDeDuracionImpar(){
+		return duracion.odd()
 	}
 	method longitudDeLetra(){
 		return letraDeCancion.size()

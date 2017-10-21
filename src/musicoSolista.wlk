@@ -5,7 +5,7 @@ class MusicoSolista inherits Musico {
 
 	var palabra
 	
-	constructor(unaHabilidad,albumesPublicados,unaPalabra) = super(unaHabilidad,albumesPublicados){
+	constructor(unaHabilidad,albumesPublicados,unMetodoCanto,unMetodoCobranza,unaPalabra) = super(unaHabilidad,albumesPublicados,unMetodoCanto,unMetodoCobranza){
 		palabra = unaPalabra
 		estaEnGrupo = false
 	}
