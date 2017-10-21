@@ -1,14 +1,13 @@
-object laTrastienda {
+import Lugar.*
 
-	method esConcurrido(){
-		return false
-	}
-	method capacidad(unaFecha){
+object laTrastienda inherits Lugar(400) {
+	
+	override method capacidad(unaFecha){
 		if(unaFecha.dayOfWeek() == 6){
 			return 700
 		}
 		else {
-			return 400
+			return capacidad
 		}
 	}
 

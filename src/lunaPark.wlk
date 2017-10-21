@@ -1,9 +1,5 @@
-object lunaPark {
+import Lugar.*
+
+object lunaPark inherits Lugar(9290){
 	
-	method esConcurrido(){
-		return true
-	}
-	method capacidad(unaFecha){
-		return 9290
-	}
 }

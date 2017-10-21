@@ -2,6 +2,7 @@ import album.*
 import Cancion.*
 import criterios.*
 import laTrastienda.*
+import Lugar.*
 import lunaPark.*
 import Mashup.*
 import musico.*
@@ -38,6 +39,8 @@ describe "group of tests" {
 	var mashupTriple
 	var letraAlmaDiamanteCrisantemo
 	var letraCrisantemoAlmaDiamante
+	var prixDAmi
+	var laCueva
 	
 	fixture {
 
@@ -66,6 +69,9 @@ describe "group of tests" {
 		soledad = new MusicoSolista(55,#{laSole},"amor")
 		luisAlberto.agregarAlbum(paraLosArboles)
 		luisAlberto.agregarAlbum(justCrisantemo)
+		
+		prixDAmi = new Lugar(150)
+		laCueva = new Lugar(14000)
 		
 		presentacionLuna = new Presentacion(20,04,2017,lunaPark,#{joaquin,lucia,luisAlberto})
 		presentacionLaTrastienda = new Presentacion(15,11,2017,laTrastienda,#{joaquin,lucia,luisAlberto})
