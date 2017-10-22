@@ -333,5 +333,16 @@ describe "group of tests" {
 	test "La habilidad de 'El eterno retorno' es 165"{
 		assert.equals(165, eternoRetorno.habilidad())
 	}	
-	
+	test "pimpisole puede tocar la cancion 'la familia' "{
+		assert.that(pimpisole.puedeTocar(laFamilia))
+	}
+	test "pimpisole no puede tocar la cancion '' "{
+		assert.notThat(pimpisole.puedeTocar(cisne))
+	}
+	test "el eterno retorno puede tocar la cancion 'crisantemo' "{
+		assert.that(eternoRetorno.puedeTocar(crisantemo))
+	}
+	test "el eterno retorno no puede tocar la cancion 'cisne' "{
+		assert.notThat(eternoRetorno.puedeTocar(cisne))
+	}
 }
