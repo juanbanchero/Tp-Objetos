@@ -4,7 +4,7 @@ import musico.*
 import Cancion.*
 import metodosDeCanto.*
 
-object luisAlberto inherits Musico(8,#{},metodoLuisAlberto,){
+object luisAlberto inherits Musico(8,#{},metodoLuisAlberto,null,){
 	
 	var guitarraEnUso = fender
 	
