@@ -21,10 +21,6 @@ object palabrero inherits MetodoCanto{
 
 object larguero inherits MetodoCanto{
 	
-	var duracionMinima
-	method parametrizar(unaDuracion){
-		duracionMinima = unaDuracion
-	}
 	override method interpretaBien(unCantante,unaCancion){
 		return super(unCantante,unaCancion) || unaCancion.duraMasDe(unCantante.parametroCanto())
 	}
