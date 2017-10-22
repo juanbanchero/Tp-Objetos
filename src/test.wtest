@@ -15,6 +15,7 @@ import fender.*
 import gibson.*
 import remix.*
 import pdpalooza.*
+import Banda.*
 
 describe "group of tests" {
 	
@@ -42,6 +43,10 @@ describe "group of tests" {
 	var letraCrisantemoAlmaDiamante
 	var prixDAmi
 	var laCueva
+	var pimpisole
+	var cachorro
+	var eternoRetorno
+	var felix
 	
 	fixture {
 
@@ -64,12 +69,18 @@ describe "group of tests" {
 		paraLosArboles = new Album(#{cisne,almaDeDiamante},31,03,2003,50000,49000)
 		justCrisantemo = new Album(#{crisantemo},05,12,2007,28000,27500)
 		
-		joaquin = new MusicoEnGrupo(20,#{especialLaFamilia},larguero,300,,5)
-		lucia = new MusicoSolista(70,#{},palabrero,"familia",)
-		kike = new MusicoEnGrupo(60,#{},imparero,,20)
-		soledad = new MusicoSolista(55,#{laSole},palabrero,"amor",)
+		joaquin = new MusicoEnGrupo(20,#{especialLaFamilia},larguero,300,null,5)
+		lucia = new MusicoSolista(70,#{},palabrero,"familia",null)
+		kike = new MusicoEnGrupo(60,#{},imparero,20,null,10)
+		soledad = new MusicoSolista(55,#{laSole},palabrero,"amor",null)
 		luisAlberto.agregarAlbum(paraLosArboles)
 		luisAlberto.agregarAlbum(justCrisantemo)
+		
+		pimpisole = new Banda(cachorro, #{soledad,joaquin,lucia})
+		eternoRetorno = new Banda(felix, #{kike,luisAlberto})
+		
+		cachorro = new Representante(1982)
+		felix = new Representante(500)
 		
 		prixDAmi = new Lugar(150)
 		laCueva = new Lugar(14000)
@@ -310,7 +321,17 @@ describe "group of tests" {
 
 	test "Un musico con habilidad mayor a 70 y que tenga alguna cancion editada puede participar del Pdpalooza" {
 		//// si se cumple la primer condicion, se cumple que puede interpretar Cancion de Alicia en el Pais
-		var juanBanchero = new MusicoEnGrupo(70,#{justCrisantemo},10)
+		var juanBanchero = new MusicoEnGrupo(70,#{justCrisantemo},null,null,null,10)
 		assert.that(juanBanchero.puedeTocar())
 	}
+	
+	////TEST CUARTA ITERACION
+	
+	test "La habilidad de 'pimpisole' es 121"{
+		assert.equals(121, pimpisole.habilidad())
+	}
+	test "La habilidad de 'El eterno retorno' es 165"{
+		assert.equals(165, eternoRetorno.habilidad())
+	}	
+	
 }

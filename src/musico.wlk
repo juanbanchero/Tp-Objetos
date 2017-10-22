@@ -18,7 +18,13 @@ class Musico {
 		parametroCanto = unParametroCanto
 		metodoCobranza = unMetodoCobranza
 	}
-	
+		
+	method meterseEnGrupo() {
+		estaEnGrupo = true
+	}
+	method carreraSolista() {
+		estaEnGrupo = false
+	}
 	method cambiarMetodoCanto(unMetodo){
 		metodoCanto = unMetodo
 	}
