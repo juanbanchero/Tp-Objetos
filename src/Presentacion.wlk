@@ -35,4 +35,7 @@ class Presentacion {
 		return cantantes.sum({cantante => cantante.costo(self)})
 	}
 	
+	method nivelDeMagia() {
+		return cantantes.sum({participante => participante.habilidad()})
+	}
 }

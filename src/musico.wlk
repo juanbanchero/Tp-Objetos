@@ -8,6 +8,7 @@ class Musico {
 	var metodoCanto
 	var metodoCobranza
 	var parametroCanto
+	var listadoCanciones = []
 	
 	const cancionDeAliciaEnElPais = new Cancion ("Cancion de Alicia en el Pais",510,"Quien sabe Alicia, este pais no estuvo hecho porque si. Te vas a ir, vas a salir pero te quedas, ¿donde más vas a ir? Y es que aqui, sabes el trabalenguas, trabalenguas, el asesino te asesina, y es mucho para ti. Se acabo ese juego que te hacia feliz.")
 		
@@ -17,6 +18,10 @@ class Musico {
 		metodoCanto = unMetodoCanto
 		parametroCanto = unParametroCanto
 		metodoCobranza = unMetodoCobranza
+	}
+		
+	method habilidad() {
+		return habilidad
 	}
 		
 	method meterseEnGrupo() {
@@ -63,5 +68,9 @@ class Musico {
 	}
 	method puedeTocar() {
 		return self.tieneHabilidadNecesaria() && self.tieneAlgunaCancion() && self.interpretaBien(cancionDeAliciaEnElPais)
+	}
+	
+	method cualesPuedeTocar() {
+		return listadoCanciones.filter({cancion => self.interpretaBien(cancion)})
 	}
 }
