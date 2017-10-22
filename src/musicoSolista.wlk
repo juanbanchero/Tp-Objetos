@@ -2,11 +2,8 @@ import musico.*
 import Cancion.*
 
 class MusicoSolista inherits Musico {
-
-	var palabra
 	
-	constructor(unaHabilidad,albumesPublicados,unMetodoCanto,unMetodoCobranza,unaPalabra) = super(unaHabilidad,albumesPublicados,unMetodoCanto,unMetodoCobranza){
-		palabra = unaPalabra
+	constructor(unaHabilidad,albumesPublicados,unMetodoCanto,unMetodoCobranza,unParametroCanto) = super(unaHabilidad,albumesPublicados,unMetodoCanto,unMetodoCobranza,unParametroCanto){
 		estaEnGrupo = false
 	}
 	
@@ -23,9 +20,6 @@ class MusicoSolista inherits Musico {
 	}
 	method meterseEnGrupo() {
 		estaEnGrupo = true
-	}
-	override method interpretaBien(unaCancion) {
-		return super(unaCancion) || unaCancion.dice(palabra)
 	}
 	method costo(unaPresentacion) {
 		if(unaPresentacion.esUnLugarConcurrido()) {

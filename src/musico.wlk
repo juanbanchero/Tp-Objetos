@@ -7,22 +7,26 @@ class Musico {
 	var estaEnGrupo
 	var metodoCanto
 	var metodoCobranza
+	var parametroCanto
 	
 	const cancionDeAliciaEnElPais = new Cancion ("Cancion de Alicia en el Pais",510,"Quien sabe Alicia, este pais no estuvo hecho porque si. Te vas a ir, vas a salir pero te quedas, ¿donde más vas a ir? Y es que aqui, sabes el trabalenguas, trabalenguas, el asesino te asesina, y es mucho para ti. Se acabo ese juego que te hacia feliz.")
 		
-	constructor (unaHabilidad,albumesPublicados,unMetodoCanto,unMetodoCobranza){
+	constructor (unaHabilidad,albumesPublicados,unMetodoCanto,unMetodoCobranza,unParametroCanto){
 		habilidad = unaHabilidad
 		albumes = albumesPublicados
 		metodoCanto = unMetodoCanto
+		parametroCanto = unParametroCanto
 		metodoCobranza = unMetodoCobranza
 	}
-	
 	
 	method cambiarMetodoCanto(unMetodo){
 		metodoCanto = unMetodo
 	}
 	method cambiarMetodoCobranza(unMetodo){
 		metodoCobranza = unMetodo
+	}
+	method parametroCanto(){
+		return parametroCanto
 	}
 	method esMinimalista(){
 		return albumes.all({album => album.todasSusCancionesSonCortas()})
@@ -45,11 +49,11 @@ class Musico {
 	method tieneHabilidadNecesaria() {
 		return habilidad >= 70	
 	}
-	method tieneAlgunaCancion() {		
+	method tieneAlgunaCancion(){		
 		return albumes != #{}
 	}
 	method interpretaBien(unaCancion){
-		return self.esHabilidoso() || self.esDeSuAutoria(unaCancion)
+		return metodoCanto.interpretaBien(self,unaCancion)
 	}
 	method puedeTocar() {
 		return self.tieneHabilidadNecesaria() && self.tieneAlgunaCancion() && self.interpretaBien(cancionDeAliciaEnElPais)

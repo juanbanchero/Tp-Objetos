@@ -2,10 +2,11 @@ import fender.*
 import gibson.*
 import musico.*
 import Cancion.*
+import metodosDeCanto.*
 
-object luisAlberto inherits Musico(8,#{}){
+object luisAlberto inherits Musico(8,#{},metodoLuisAlberto,){
 	
-	var guitarraEnUso
+	var guitarraEnUso = fender
 	
 	method usarGuitarra(unaGuitarra) {
 		guitarraEnUso = unaGuitarra

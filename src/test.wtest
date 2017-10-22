@@ -5,6 +5,7 @@ import laTrastienda.*
 import Lugar.*
 import lunaPark.*
 import Mashup.*
+import metodosDeCanto.*
 import musico.*
 import musicoEnGrupo.*
 import musicoSolista.*
@@ -63,10 +64,10 @@ describe "group of tests" {
 		paraLosArboles = new Album(#{cisne,almaDeDiamante},31,03,2003,50000,49000)
 		justCrisantemo = new Album(#{crisantemo},05,12,2007,28000,27500)
 		
-		joaquin = new MusicoEnGrupo(20,#{especialLaFamilia},5)
-		lucia = new MusicoSolista(70,#{},"Familia")
-		kike = new MusicoEnGrupo(60,#{},20)
-		soledad = new MusicoSolista(55,#{laSole},"amor")
+		joaquin = new MusicoEnGrupo(20,#{especialLaFamilia},larguero,300,,5)
+		lucia = new MusicoSolista(70,#{},palabrero,"familia",)
+		kike = new MusicoEnGrupo(60,#{},imparero,,20)
+		soledad = new MusicoSolista(55,#{laSole},palabrero,"amor",)
 		luisAlberto.agregarAlbum(paraLosArboles)
 		luisAlberto.agregarAlbum(justCrisantemo)
 		

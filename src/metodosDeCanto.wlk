@@ -13,24 +13,20 @@ class MetodoCanto{
 
 object palabrero inherits MetodoCanto{
 	
-	var palabra
-	method definirPalabra(unaPalabra){
-		palabra = unaPalabra
-	}
 	override method interpretaBien(unCantante,unaCancion){
-		return super(unCantante,unaCancion) || unaCancion.dice(palabra) 
+		return super(unCantante,unaCancion) || unaCancion.dice(unCantante.parametroCanto()) 
 	}
-	
+
 }
 
 object larguero inherits MetodoCanto{
 	
 	var duracionMinima
-	method establecerDuracion(unaDuracion){
+	method parametrizar(unaDuracion){
 		duracionMinima = unaDuracion
 	}
 	override method interpretaBien(unCantante,unaCancion){
-		return super(unCantante,unaCancion) || unaCancion.duraMasDe(duracionMinima)
+		return super(unCantante,unaCancion) || unaCancion.duraMasDe(unCantante.parametroCanto())
 	}
 	
 }

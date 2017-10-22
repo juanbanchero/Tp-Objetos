@@ -5,7 +5,7 @@ class MusicoEnGrupo inherits Musico {
 	
 	var aumentoPorEstarEnGrupo
 	
-	constructor(unaHabilidad,albumesPublicados,unMetodoCanto,unMetodoCobranza,unAumentoPorEstarEnGrupo) = super(unaHabilidad,albumesPublicados,unMetodoCanto,unMetodoCobranza){
+	constructor(unaHabilidad,albumesPublicados,unMetodoCanto,unParametroCanto,unMetodoCobranza,unAumentoPorEstarEnGrupo) = super(unaHabilidad,albumesPublicados,unMetodoCanto,unMetodoCobranza,unParametroCanto){
 		aumentoPorEstarEnGrupo = unAumentoPorEstarEnGrupo
 		estaEnGrupo = true
 	}
@@ -23,10 +23,6 @@ class MusicoEnGrupo inherits Musico {
 	}
 	method carreraSolista() {
 		estaEnGrupo = false
-	}
-	
-	override method interpretaBien(unaCancion) {
-		return super(unaCancion) || unaCancion.esLarga()
 	}
 	method costo(unaPresentacion) {
 		if(unaPresentacion.tocaSolo(self)) {
