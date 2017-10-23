@@ -4,7 +4,7 @@ import musico.*
 import Cancion.*
 import metodosDeCanto.*
 
-object luisAlberto inherits Musico(8,#{},metodoLuisAlberto,null,null){
+object luisAlberto inherits Musico(8,#{},metodoLuisAlberto,null,null,null,null,null,null,null,null){
 	
 	var guitarraEnUso = fender
 	
@@ -17,13 +17,13 @@ object luisAlberto inherits Musico(8,#{},metodoLuisAlberto,null,null){
 	method cantar(){
 		return self.habilidad()
 	}
-	method habilidad() {
+	override method habilidad() {
 		return 100.min(habilidad * guitarraEnUso.precio())
 	}
 	override method interpretaBien(unaCancion){
 		return true 
 	}
-	method costo(unaPresentacion) {
+	override method costo(unaPresentacion) {
 		if (unaPresentacion.esAntesDeSeptiembre2017()) {
 			return 1000
 		}

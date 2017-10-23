@@ -9,15 +9,23 @@ class Musico {
 	var metodoCobranza
 	var parametroCanto
 	var listadoCanciones = []
+	var plataACobrar
+	var personasParaLasQuePuedeTocar
+	var fechaDeCobro
+	var porcentajeDeCobroAdicional
 	
-	const cancionDeAliciaEnElPais = new Cancion ("Cancion de Alicia en el Pais",510,"Quien sabe Alicia, este pais no estuvo hecho porque si. Te vas a ir, vas a salir pero te quedas, ¿donde más vas a ir? Y es que aqui, sabes el trabalenguas, trabalenguas, el asesino te asesina, y es mucho para ti. Se acabo ese juego que te hacia feliz.")
+	const cancionDeAliciaEnElPais = new Cancion ("Cancion de Alicia en el Pais",510,"Quien sabe Alicia, este pais no estuvo hecho porque si. Te vas a ir, vas a salir pero te quedas, ï¿½donde mï¿½s vas a ir? Y es que aqui, sabes el trabalenguas, trabalenguas, el asesino te asesina, y es mucho para ti. Se acabo ese juego que te hacia feliz.")
 		
-	constructor (unaHabilidad,albumesPublicados,unMetodoCanto,unParametroCanto,unMetodoCobranza){
+	constructor (unaHabilidad,albumesPublicados,unMetodoCanto,unParametroCanto,unMetodoCobranza,unaPlataACobrar,unasPersonasParaLasQuePuedeTocar,dia,mes,agno,unPorcentaje){
 		habilidad = unaHabilidad
 		albumes = albumesPublicados
 		metodoCanto = unMetodoCanto
 		parametroCanto = unParametroCanto
 		metodoCobranza = unMetodoCobranza
+		plataACobrar = unaPlataACobrar
+		personasParaLasQuePuedeTocar = unasPersonasParaLasQuePuedeTocar
+		fechaDeCobro = new Date(dia,mes,agno)
+		porcentajeDeCobroAdicional = unPorcentaje
 	}
 		
 	method habilidad() {
@@ -69,8 +77,11 @@ class Musico {
 	method puedeTocar() {
 		return self.tieneHabilidadNecesaria() && self.tieneAlgunaCancion() && self.interpretaBien(cancionDeAliciaEnElPais)
 	}
-	
 	method cualesPuedeTocar() {
 		return listadoCanciones.filter({cancion => self.interpretaBien(cancion)})
 	}
+	method costo(unaPresentacion){
+		return metodoCobranza.cobrar(self,unaPresentacion,plataACobrar,personasParaLasQuePuedeTocar,fechaDeCobro,porcentajeDeCobroAdicional)
+	}
+
 }
