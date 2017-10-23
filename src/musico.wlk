@@ -1,7 +1,4 @@
 import Cancion.*
-import cobranzaPorCapacidad.*
-import cobranzaPorExpectativaInflacionaria.*
-import cobranzaPorEspectadores.*
 class Musico {
 	
 	var habilidad
@@ -9,27 +6,21 @@ class Musico {
 	var estaEnGrupo
 	var metodoCanto
 	var metodoCobranza
-	var parametroCanto
 	
 	const cancionDeAliciaEnElPais = new Cancion ("Cancion de Alicia en el Pais",510,"Quien sabe Alicia, este pais no estuvo hecho porque si. Te vas a ir, vas a salir pero te quedas, adonde mas vas a ir? Y es que aqui, sabes el trabalenguas, trabalenguas, el asesino te asesina, y es mucho para ti. Se acabo ese juego que te hacia feliz.")
 		
-	constructor (unaHabilidad,albumesPublicados,unMetodoCanto,unParametroCanto){
+	constructor (unaHabilidad,albumesPublicados,unMetodoCanto,unMetodoCobranza){
 		habilidad = unaHabilidad
 		albumes = albumesPublicados
 		metodoCanto = unMetodoCanto
-		parametroCanto = unParametroCanto
+		metodoCobranza = unMetodoCobranza
 	}
 	
 		
-	method cobrarPorCapacidad(precio, cantidadDePersonas){
-		metodoCobranza = new CobranzaPorCapacidad (precio,cantidadDePersonas)
+	method metodoCobranza(unMetodoCobranza){
+		metodoCobranza = unMetodoCobranza
 	}
-	method cobrarPorExclusividad(precio){
-		metodoCobranza = new CobranzaPorExclusividad(precio)
-	}
-	method cobrarPorExpectativaInflacionaria(precio,dia,mes,agno,porcentaje){
-		metodoCobranza = new CobranzaPorExpectativaInflacionaria(precio,dia,mes,agno,porcentaje)
-	}		
+		
 	method habilidad() {
 		return habilidad
 	}
@@ -43,9 +34,7 @@ class Musico {
 	method cambiarMetodoCanto(unMetodo){
 		metodoCanto = unMetodo
 	}
-	method parametroCanto(){
-		return parametroCanto
-	}
+
 	method esMinimalista(){
 		return albumes.all({album => album.todasSusCancionesSonCortas()})
 	}
@@ -71,7 +60,7 @@ class Musico {
 		return albumes != #{}
 	}
 	method interpretaBien(unaCancion){
-		return metodoCanto.interpretaBien(self,unaCancion)
+		return self.esHabilidoso() || self.esDeSuAutoria(unaCancion) || metodoCanto.interpretaBien(unaCancion)
 	}
 	method puedeTocar() {
 		return self.tieneHabilidadNecesaria() && self.tieneAlgunaCancion() && self.interpretaBien(cancionDeAliciaEnElPais)

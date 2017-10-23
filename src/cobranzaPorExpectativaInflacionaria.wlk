@@ -1,13 +1,14 @@
-import cobranzaPorCapacidad.*
-class CobranzaPorExpectativaInflacionaria inherits MetodoCobranza{
+
+class CobranzaPorExpectativaInflacionaria{
 	var fecha
 	var porcentajeAdicional
-
-	constructor (unPrecio,dia,mes,agno,unPorcentaje) = super(unPrecio){
+	var precio
+	constructor (unPrecio,dia,mes,agno,unPorcentaje){
 		fecha = new Date(dia,mes,agno)
 		porcentajeAdicional = unPorcentaje
+		precio = unPrecio
 	}
-	override method cobrar(unCantante,unaPresentacion){
+method cobrar(unCantante,unaPresentacion){
 	if(unaPresentacion.fecha() <= fecha){
 		return precio
 	}	

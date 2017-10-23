@@ -1,9 +1,11 @@
-import cobranzaPorCapacidad.*
-class CobranzaPorExclusividad inherits MetodoCobranza{
 
-constructor(unPrecio) = super(unPrecio)
+class CobranzaPorExclusividad{
+var precio
+constructor(unPrecio){
+	precio = unPrecio
+}
 
-override method cobrar(unCantante,unaPresentacion){
+method cobrar(unCantante,unaPresentacion){
 	if(unaPresentacion.tocaSolo(unCantante)){
 		return precio
 	}

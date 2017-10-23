@@ -3,41 +3,38 @@ import Cancion.*
 import remix.*
 import Mashup.*
 
-class MetodoCanto{
+class Palabrero{
+	var palabra
+	constructor(unaPalabra){
+		palabra = unaPalabra
+	}
+	method interpretaBien(unCantante,unaCancion){
+		return unaCancion.dice(palabra) 
+	}
+
+}
+
+class Larguero{
+	var largo
+	constructor(unaDuracion){
+		largo = unaDuracion
+	}
+	method interpretaBien(unaCancion){
+		return unaCancion.duraMasDe(largo)
+	}
+	
+}
+
+object imparero{
+	method interpretaBien(unaCancion){
+		return unaCancion.esDeDuracionImpar()
+	}
+	
+}
+
+object metodoLuisAlberto{
 	
 	method interpretaBien(unCantante,unaCancion){
-		return unCantante.esHabilidoso() || unCantante.esDeSuAutoria(unaCancion)
-	}
-	
-}
-
-object palabrero inherits MetodoCanto{
-	
-	override method interpretaBien(unCantante,unaCancion){
-		return super(unCantante,unaCancion) || unaCancion.dice(unCantante.parametroCanto()) 
-	}
-
-}
-
-object larguero inherits MetodoCanto{
-	
-	override method interpretaBien(unCantante,unaCancion){
-		return super(unCantante,unaCancion) || unaCancion.duraMasDe(unCantante.parametroCanto())
-	}
-	
-}
-
-object imparero inherits MetodoCanto{
-	
-	override method interpretaBien(unCantante,unaCancion){
-		return super(unCantante,unaCancion) || unaCancion.esDeDuracionImpar()
-	}
-	
-}
-
-object metodoLuisAlberto inherits MetodoCanto{
-	
-	override method interpretaBien(unCantante,unaCancion){
 		return true
 	}
 	

@@ -3,7 +3,7 @@ import Cancion.*
 
 class MusicoSolista inherits Musico {
 	
-	constructor(unaHabilidad,albumesPublicados,unMetodoCanto,unParametroCanto) = super(unaHabilidad,albumesPublicados,unMetodoCanto,unParametroCanto){
+	constructor(unaHabilidad,albumesPublicados,unMetodoCanto,metodoCobranza) = super(unaHabilidad,albumesPublicados,unMetodoCanto,metodoCobranza){
 		estaEnGrupo = false
 	}
 	
