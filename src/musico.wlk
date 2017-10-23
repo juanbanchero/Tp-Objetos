@@ -43,9 +43,6 @@ class Musico {
 	method cambiarMetodoCanto(unMetodo){
 		metodoCanto = unMetodo
 	}
-	method cambiarMetodoCobranza(unMetodo){
-		metodoCobranza = unMetodo
-	}
 	method parametroCanto(){
 		return parametroCanto
 	}
@@ -82,8 +79,6 @@ class Musico {
 	method cualesPuedeTocar() {
 		return listadoCanciones.filter({cancion => self.interpretaBien(cancion)})
 	}
-	method costo(unaPresentacion){
-		return metodoCobranza.cobrar(self,unaPresentacion)
-	}
+
 
 }
