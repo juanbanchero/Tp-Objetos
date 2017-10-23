@@ -71,7 +71,7 @@ describe "group of tests" {
 		
 		joaquin = new MusicoEnGrupo(20,#{especialLaFamilia},larguero,300,5)
 		joaquin.cobrarPorExclusividad(100)
-		lucia = new MusicoSolista(70,#{},palabrero,"familia")
+		lucia = new MusicoSolista(70,#{},palabrero,"Familia")
 		lucia.cobrarPorCapacidad(500,5000)
 		kike = new MusicoEnGrupo(60,#{},imparero,20,10)
 		kike.cobrarPorExpectativaInflacionaria(4000,8,1,2018,0.5)
@@ -323,30 +323,48 @@ describe "group of tests" {
 	test "Un musico sin ninguna cancion de su autoria no tocar en Pdpalooza" {
 		assert.throwsExceptionWithMessage("El musico no tiene ninguna cancion de su autoria", {pdpalooza.agregarMusico(lucia)})
 	}
-
-	test "Un musico con habilidad mayor a 70 y que tenga alguna cancion editada puede participar del Pdpalooza" {
-		//// si se cumple la primer condicion, se cumple que puede interpretar Cancion de Alicia en el Pais
-		var juanBanchero = new MusicoEnGrupo(70,#{justCrisantemo},null,null,10)
-		assert.that(juanBanchero.puedeTocar())
-	}
 	
 	////TEST CUARTA ITERACION
+	
+	test "Joaquín interpreta bien 'La Familia', que es de su autoria" {
+		assert.that(joaquin.interpretaBien(laFamilia))
+	}
+	
+	test "Joaquín no interpreta bien 'Corazon Americano', ya que no posee la habilidad necesaria, no es de su autoria y no es de mas de 300 segundos" {
+		assert.that(!joaquin.interpretaBien(corazonAmericano))
+	}
+	
+	test "Lucia interpreta bien 'La Familia', ya dice ella es palabrera de 'Familia'" {
+		assert.that(lucia.interpretaBien(laFamilia))
+	}
+	
+	test "Joaquín interpreta bien 'Cisne', ya que el es larguero de 300 segundos, y Cisne dura 312" {
+		assert.that(joaquin.interpretaBien(cisne))
+	}
+	
+	test "Kike interpreta bien 'Crisantemo', ya que esta dura 175 segundos y el es imparero"{
+		assert.that(kike.interpretaBien(crisantemo))
+	}
 	
 	test "La habilidad de 'pimpisole' es 121"{
 		assert.equals(121, pimpisole.habilidad())
 	}
+	
 	test "La habilidad de 'El eterno retorno' es 165"{
 		assert.equals(165, eternoRetorno.habilidad())
-	}	
+	}
+		
 	test "pimpisole puede tocar la cancion 'la familia' "{
 		assert.that(pimpisole.puedeTocar(laFamilia))
 	}
+	
 	test "pimpisole no puede tocar la cancion '' "{
 		assert.notThat(pimpisole.puedeTocar(cisne))
 	}
 	test "el eterno retorno puede tocar la cancion 'crisantemo' "{
 		assert.that(eternoRetorno.puedeTocar(crisantemo))
 	}
+	
 	test "el eterno retorno no puede tocar la cancion 'cisne' "{
 		assert.notThat(eternoRetorno.puedeTocar(cisne))
 	}
