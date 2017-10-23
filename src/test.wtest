@@ -369,4 +369,14 @@ describe "group of tests" {
 	test "el eterno retorno no puede tocar la cancion 'cisne' "{
 		assert.notThat(eternoRetorno.puedeTocar(cisne))
 	}
+	
+		test "La magia producida por un show en el que se presentan joaquin, lucia y el kike es de 150" {
+		var altaFecha = new Presentacion(13,11,2018,lunaPark,#{kike,joaquin,lucia})
+		assert.equals(150,altaFecha.nivelDeMagia())
+	}
+	
+	test "Entre 'La Familia', 'Cisne' y 'Alma de Diamante', Joaquin solo puede tocar 'La Familia' " {
+		var lista = #{laFamilia,cisne,almaDeDiamante}
+		assert.equals(#{laFamilia,cisne}, joaquin.cualesPuedeTocar(lista))
+	}
 }
