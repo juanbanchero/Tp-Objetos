@@ -12,6 +12,9 @@ class Presentacion {
 		fecha = new Date(unDia,unMes,unAgno)
 		cantantes = listaDeCantantes
 	}
+	method fecha(){
+		return fecha
+	}
 	method hayUnSoloCantante(){
 		return cantantes.size() == 1
 	}

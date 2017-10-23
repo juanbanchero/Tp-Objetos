@@ -1,5 +1,7 @@
 import Cancion.*
-
+import cobranzaPorCapacidad.*
+import cobranzaPorExpectativaInflacionaria.*
+import cobranzaPorEspectadores.*
 class Musico {
 	
 	var habilidad
@@ -9,25 +11,25 @@ class Musico {
 	var metodoCobranza
 	var parametroCanto
 	var listadoCanciones = []
-	var plataACobrar
-	var personasParaLasQuePuedeTocar
-	var fechaDeCobro
-	var porcentajeDeCobroAdicional
 	
 	const cancionDeAliciaEnElPais = new Cancion ("Cancion de Alicia en el Pais",510,"Quien sabe Alicia, este pais no estuvo hecho porque si. Te vas a ir, vas a salir pero te quedas, �donde m�s vas a ir? Y es que aqui, sabes el trabalenguas, trabalenguas, el asesino te asesina, y es mucho para ti. Se acabo ese juego que te hacia feliz.")
 		
-	constructor (unaHabilidad,albumesPublicados,unMetodoCanto,unParametroCanto,unMetodoCobranza,unaPlataACobrar,unasPersonasParaLasQuePuedeTocar,dia,mes,agno,unPorcentaje){
+	constructor (unaHabilidad,albumesPublicados,unMetodoCanto,unParametroCanto){
 		habilidad = unaHabilidad
 		albumes = albumesPublicados
 		metodoCanto = unMetodoCanto
 		parametroCanto = unParametroCanto
-		metodoCobranza = unMetodoCobranza
-		plataACobrar = unaPlataACobrar
-		personasParaLasQuePuedeTocar = unasPersonasParaLasQuePuedeTocar
-		fechaDeCobro = new Date(dia,mes,agno)
-		porcentajeDeCobroAdicional = unPorcentaje
 	}
 		
+	method cobrarPorCapacidad(precio, cantidadDePersonas){
+		metodoCobranza = new CobranzaPorCapacidad (precio,cantidadDePersonas)
+	}
+	method cobrarPorExclusividad(precio){
+		metodoCobranza = new CobranzaPorExclusividad(precio)
+	}
+	method cobrarPorExpectativaInflacionaria(precio,dia,mes,agno,porcentaje){
+		metodoCobranza = new CobranzaPorExpectativaInflacionaria(precio,dia,mes,agno,porcentaje)
+	}		
 	method habilidad() {
 		return habilidad
 	}
@@ -81,7 +83,7 @@ class Musico {
 		return listadoCanciones.filter({cancion => self.interpretaBien(cancion)})
 	}
 	method costo(unaPresentacion){
-		return metodoCobranza.cobrar(self,unaPresentacion,plataACobrar,personasParaLasQuePuedeTocar,fechaDeCobro,porcentajeDeCobroAdicional)
+		return metodoCobranza.cobrar(self,unaPresentacion)
 	}
 
 }

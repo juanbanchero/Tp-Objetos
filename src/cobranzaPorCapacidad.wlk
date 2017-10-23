@@ -1,13 +1,24 @@
+class MetodoCobranza{
+	var precio
+	constructor(unPrecio){
+		precio = unPrecio
+	}
+	method cobrar(unCantante, unaPresentacion)
+}
 
-object cobranzaPorCapacidad {
+class CobranzaPorCapacidad inherits MetodoCobranza{
+	var cantidadDePersonas
 	
-method cobrar(unCantante,unaPresentacion,plataACobrar,personas,fecha,porcentajeAdicional){
-	if(unaPresentacion.capacidadEstadio() > personas)
+	constructor(unPrecio, unaCantidad) = super(unPrecio){
+		cantidadDePersonas = unaCantidad
+	}
+ override method cobrar(unCantante,unaPresentacion){
+	if(unaPresentacion.capacidadEstadio() > cantidadDePersonas)
 	{
-		return plataACobrar
+		return precio
 	}
 	else {
-		return plataACobrar - 100
+		return precio - 100
 	}
 }
 }

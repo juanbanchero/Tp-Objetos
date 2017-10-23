@@ -18,6 +18,9 @@ class Banda {
 	method puedeTocar(unaCancion){
 		return musicos.all{musico => musico.interpretaBien(unaCancion)}
 	}
+	method costo(unaPresentacion){
+		return musicos.sum{musico => musico.costo(unaPresentacion)} + representante.precio()
+	}
 }
 
 class Representante {
@@ -25,5 +28,8 @@ class Representante {
 	
 	constructor(unPrecio){
 		precio = unPrecio
+	}
+	method precio(){
+		return precio
 	}
 }

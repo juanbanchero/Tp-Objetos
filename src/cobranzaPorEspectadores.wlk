@@ -1,12 +1,14 @@
+import cobranzaPorCapacidad.*
+class CobranzaPorExclusividad inherits MetodoCobranza{
 
-object cobranzaPorEspectadores {
+constructor(unPrecio) = super(unPrecio)
 
-method cobrar(unCantante,unaPresentacion,plataACobrar,personas,fecha,porcentajeAdicional){
+override method cobrar(unCantante,unaPresentacion){
 	if(unaPresentacion.tocaSolo(unCantante)){
-		return plataACobrar
+		return precio
 	}
 	else {
-		return plataACobrar/2
+		return precio/2
 	}
 }
 }
