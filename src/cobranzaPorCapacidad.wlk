@@ -20,5 +20,5 @@ class CobranzaPorCapacidad inherits MetodoCobranza{
 	else {
 		return precio - 100
 	}
-}
+	}
 }

@@ -1,4 +1,3 @@
-
 class Banda {
 	var representante
 	var musicos = #{}

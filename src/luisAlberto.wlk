@@ -23,12 +23,4 @@ object luisAlberto inherits Musico(8,#{},null,null){
 	override method interpretaBien(unaCancion){
 		return true 
 	}
-     method costo(unaPresentacion) {
-		if (unaPresentacion.esAntesDeSeptiembre2017()) {
-			return 1000
-		}
-		else {
-			return 1200
-		}  
-	}
 }

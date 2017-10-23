@@ -55,7 +55,7 @@ describe "group of tests" {
 		
 		laFamilia = new Cancion("La Familia",264,"Quiero brindar por mi gente sencilla, por el amor brindo por la Familia")
 		eres = new Cancion("Eres",145,"Eres lo mejor que me paso en la vida, no tengo duda, no habra nada despues de ti. Eres lo que le dio brillo al dia a dia, y asi sera por siempre, no cambiara, hasta el final de mis dias")
-		corazonAmericano = new Cancion("Corazon Americano",154,"Canta corazon, canta mas alto, que tu pena al fin se va marchando, el nuevo milenio ha de encontrarnos, junto corazon, como soï¿½amos")
+		corazonAmericano = new Cancion("Corazon Americano",154,"Canta corazon, canta mas alto, que tu pena al fin se va marchando, el nuevo milenio ha de encontrarnos, junto corazon, como soñamos")
 		cisne = new Cancion("Cisne",312,"Hoy el viento se abrio quedo vacio el aire una vez mas y el manantial broto y nadie esta aqui y puedo ver que solo estallan las hojas al brillar")
 		almaDeDiamante = new Cancion("Alma De Diamante",216,"Ven a mi con tu dulce luz alma de diamante. Y aunque el sol se nuble despues sos alma de diamante. Cielo o piel silencio o verdad sos alma de diamante. Por eso ven asi con la humanidad alma de diamante")
 		crisantemo = new Cancion("Crisantemo",175,"Tocame junto a esta pared, yo quede por aqui, cuando no hubo mas luz... quiero mirar a traves de mi piel... Crisantemo, que se abrio... encuentra el camino hacia el cielo")
@@ -79,6 +79,7 @@ describe "group of tests" {
 		soledad.cobrarPorExclusividad(6000)
 		luisAlberto.agregarAlbum(paraLosArboles)
 		luisAlberto.agregarAlbum(justCrisantemo)
+		luisAlberto.cobrarPorExpectativaInflacionaria(1000,01,09,2017,0.2)
 		
 		pimpisole = new Banda(cachorro, #{soledad,joaquin,lucia})
 		eternoRetorno = new Banda(felix, #{kike,luisAlberto})
@@ -124,7 +125,7 @@ describe "group of tests" {
 		assert.equals(100,luisAlberto.habilidad())
 	}
 	
-	test "Alguien maltrata a la Gibson, y ahora esta no estï¿½ sana"{
+	test "Alguien maltrata a la Gibson, y ahora esta no esta sana"{
 		gibson.esMaltratada()
 		assert.that(!gibson.estaSana())
 	}
@@ -265,15 +266,15 @@ describe "group of tests" {
 	test "La cancion mas larga del disco ''Especial La Familia'' es La Familia" {
 		assert.equals(laFamilia,especialLaFamilia.mayorCancion(criterioPorLetra))
 	}	
-	test "Luis Alberto la pegï¿½"{
+	test "Luis Alberto la pego"{
 		assert.that(luisAlberto.laPego())
 	}
 	
-	test "Soledad no la pegï¿½"{
+	test "Soledad no la pego"{
 		assert.that(!soledad.laPego())
 	}
 	
-	test "Joaquin la pegï¿½"{
+	test "Joaquin la pego"{
 		assert.that(joaquin.laPego())
 	}
 	
@@ -303,7 +304,7 @@ describe "group of tests" {
 		assert.equals(312,mashupTriple.duracion())
 	}
 	
-	test "La letra del mashup entre Alma de Diamante y Crisantemo es la combinaciï¿½n de ambas letras en ese orden" {
+	test "La letra del mashup entre Alma de Diamante y Crisantemo es la combinacion de ambas letras en ese orden" {
 		assert.equals(letraAlmaDiamanteCrisantemo,mashupAlmaDeDiamanteCrisantemo.letra())
 	}
 	
@@ -311,7 +312,7 @@ describe "group of tests" {
 		assert.notEquals(mashupAlmaDeDiamanteCrisantemo.letra(),mashupCrisantemoAlmaDeDiamante.letra())
 	}
 	
-	test "La duraciï¿½n del mashup entre Eres, Corazï¿½n Americano y Cisne es 312"{
+	test "La duracion del mashup entre Eres, Corazon Americano y Cisne es 312"{
 		assert.equals(312, mashupTriple.duracion())
 	}
 	
