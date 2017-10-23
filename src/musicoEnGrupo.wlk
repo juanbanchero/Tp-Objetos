@@ -21,13 +21,4 @@ class MusicoEnGrupo inherits Musico {
 	method cantar() {
 		return habilidad + self.sumaHabilidad()
 	}
-
-	method costo(unaPresentacion) {
-		if(unaPresentacion.tocaSolo(self)) {
-			return 100
-		}
-		else {
-			return 50
-		}
-	}
 }

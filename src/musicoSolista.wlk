@@ -18,13 +18,4 @@ class MusicoSolista inherits Musico {
 	method cantar() {
 		return habilidad - self.restaHabilidad()
 	}
-
-	method costo(unaPresentacion) {
-		if(unaPresentacion.esUnLugarConcurrido()) {
-			return 500
-		}
-		else {
-			return 400
-		}
-	}
 }

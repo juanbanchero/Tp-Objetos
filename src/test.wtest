@@ -70,9 +70,13 @@ describe "group of tests" {
 		justCrisantemo = new Album(#{crisantemo},05,12,2007,28000,27500)
 		
 		joaquin = new MusicoEnGrupo(20,#{especialLaFamilia},larguero,300,5)
+		joaquin.cobrarPorExclusividad(100)
 		lucia = new MusicoSolista(70,#{},palabrero,"familia")
+		lucia.cobrarPorCapacidad(500,5000)
 		kike = new MusicoEnGrupo(60,#{},imparero,20,10)
+		kike.cobrarPorExpectativaInflacionaria(4000,8,1,2018,0.5)
 		soledad = new MusicoSolista(55,#{laSole},palabrero,"amor")
+		soledad.cobrarPorExclusividad(6000)
 		luisAlberto.agregarAlbum(paraLosArboles)
 		luisAlberto.agregarAlbum(justCrisantemo)
 		
@@ -101,12 +105,12 @@ describe "group of tests" {
 		assert.equals(20, joaquin.cantar())
 	}
 	
-	test "Luc�a se integra a Pimpinela. Su habilidad es de 50" {
+	test "Lucia se integra a Pimpinela. Su habilidad es de 50" {
 		lucia.meterseEnGrupo()
 		assert.equals(50, lucia.cantar())
 	}
 	
-	test "Luc�a es una cantante solista. Su habilidad es de 70" {
+	test "Lucia es una cantante solista. Su habilidad es de 70" {
 		assert.equals(70,lucia.cantar())
 	}
 	

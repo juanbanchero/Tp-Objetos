@@ -20,6 +20,7 @@ class Musico {
 		metodoCanto = unMetodoCanto
 		parametroCanto = unParametroCanto
 	}
+	
 		
 	method cobrarPorCapacidad(precio, cantidadDePersonas){
 		metodoCobranza = new CobranzaPorCapacidad (precio,cantidadDePersonas)
@@ -78,6 +79,9 @@ class Musico {
 	}
 	method cualesPuedeTocar() {
 		return listadoCanciones.filter({cancion => self.interpretaBien(cancion)})
+	}
+	method costo(unaPresentacion){
+		return metodoCobranza.cobrar(self,unaPresentacion)
 	}
 
 
