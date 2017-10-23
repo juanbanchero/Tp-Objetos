@@ -32,7 +32,7 @@ class Presentacion {
 	return fecha.month() < 09 && fecha.year() <= 2017
 	}
 	method capacidadEstadio(){
-		estadio.capacidad(fecha)
+		return estadio.capacidad(fecha)
 	}
 	method recaudacion() {
 		return cantantes.sum({cantante => cantante.costo(self)})

@@ -112,6 +112,7 @@ describe "group of tests" {
 	}
 	
 	test "Lucia es una cantante solista. Su habilidad es de 70" {
+		lucia.carreraSolista()
 		assert.equals(70,lucia.cantar())
 	}
 	
@@ -324,12 +325,6 @@ describe "group of tests" {
 		assert.throwsExceptionWithMessage("El musico no tiene ninguna cancion de su autoria", {pdpalooza.agregarMusico(lucia)})
 	}
 
-	test "Un musico con habilidad mayor a 70 y que tenga alguna cancion editada puede participar del Pdpalooza" {
-		//// si se cumple la primer condicion, se cumple que puede interpretar Cancion de Alicia en el Pais
-		var juanBanchero = new MusicoEnGrupo(70,#{justCrisantemo},null,null,10)
-		assert.that(juanBanchero.puedeTocar())
-	}
-	
 	////TEST CUARTA ITERACION
 	
 	test "La habilidad de 'pimpisole' es 121"{
