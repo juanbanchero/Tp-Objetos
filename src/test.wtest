@@ -55,7 +55,7 @@ describe "group of tests" {
 		
 		laFamilia = new Cancion("La Familia",264,"Quiero brindar por mi gente sencilla, por el amor brindo por la Familia")
 		eres = new Cancion("Eres",145,"Eres lo mejor que me paso en la vida, no tengo duda, no habra nada despues de ti. Eres lo que le dio brillo al dia a dia, y asi sera por siempre, no cambiara, hasta el final de mis dias")
-		corazonAmericano = new Cancion("Corazon Americano",154,"Canta corazon, canta mas alto, que tu pena al fin se va marchando, el nuevo milenio ha de encontrarnos, junto corazon, como soñamos")
+		corazonAmericano = new Cancion("Corazon Americano",154,"Canta corazon, canta mas alto, que tu pena al fin se va marchando, el nuevo milenio ha de encontrarnos, junto corazon, como soï¿½amos")
 		cisne = new Cancion("Cisne",312,"Hoy el viento se abrio quedo vacio el aire una vez mas y el manantial broto y nadie esta aqui y puedo ver que solo estallan las hojas al brillar")
 		almaDeDiamante = new Cancion("Alma De Diamante",216,"Ven a mi con tu dulce luz alma de diamante. Y aunque el sol se nuble despues sos alma de diamante. Cielo o piel silencio o verdad sos alma de diamante. Por eso ven asi con la humanidad alma de diamante")
 		crisantemo = new Cancion("Crisantemo",175,"Tocame junto a esta pared, yo quede por aqui, cuando no hubo mas luz... quiero mirar a traves de mi piel... Crisantemo, que se abrio... encuentra el camino hacia el cielo")
@@ -71,7 +71,7 @@ describe "group of tests" {
 		
 		joaquin = new MusicoEnGrupo(20,#{especialLaFamilia},larguero,300,5)
 		joaquin.cobrarPorExclusividad(100)
-		lucia = new MusicoSolista(70,#{},palabrero,"familia")
+		lucia = new MusicoSolista(70,#{},palabrero,"Familia")
 		lucia.cobrarPorCapacidad(500,5000)
 		kike = new MusicoEnGrupo(60,#{},imparero,20,10)
 		kike.cobrarPorExpectativaInflacionaria(4000,8,1,2018,0.5)
@@ -324,24 +324,48 @@ describe "group of tests" {
 	test "Un musico sin ninguna cancion de su autoria no tocar en Pdpalooza" {
 		assert.throwsExceptionWithMessage("El musico no tiene ninguna cancion de su autoria", {pdpalooza.agregarMusico(lucia)})
 	}
-
+	
 	////TEST CUARTA ITERACION
+	
+	test "Joaquï¿½n interpreta bien 'La Familia', que es de su autoria" {
+		assert.that(joaquin.interpretaBien(laFamilia))
+	}
+	
+	test "Joaquï¿½n no interpreta bien 'Corazon Americano', ya que no posee la habilidad necesaria, no es de su autoria y no es de mas de 300 segundos" {
+		assert.that(!joaquin.interpretaBien(corazonAmericano))
+	}
+	
+	test "Lucia interpreta bien 'La Familia', ya dice ella es palabrera de 'Familia'" {
+		assert.that(lucia.interpretaBien(laFamilia))
+	}
+	
+	test "Joaquï¿½n interpreta bien 'Cisne', ya que el es larguero de 300 segundos, y Cisne dura 312" {
+		assert.that(joaquin.interpretaBien(cisne))
+	}
+	
+	test "Kike interpreta bien 'Crisantemo', ya que esta dura 175 segundos y el es imparero"{
+		assert.that(kike.interpretaBien(crisantemo))
+	}
 	
 	test "La habilidad de 'pimpisole' es 121"{
 		assert.equals(121, pimpisole.habilidad())
 	}
+	
 	test "La habilidad de 'El eterno retorno' es 165"{
 		assert.equals(165, eternoRetorno.habilidad())
-	}	
+	}
+		
 	test "pimpisole puede tocar la cancion 'la familia' "{
 		assert.that(pimpisole.puedeTocar(laFamilia))
 	}
+	
 	test "pimpisole no puede tocar la cancion '' "{
 		assert.notThat(pimpisole.puedeTocar(cisne))
 	}
 	test "el eterno retorno puede tocar la cancion 'crisantemo' "{
 		assert.that(eternoRetorno.puedeTocar(crisantemo))
 	}
+	
 	test "el eterno retorno no puede tocar la cancion 'cisne' "{
 		assert.notThat(eternoRetorno.puedeTocar(cisne))
 	}
