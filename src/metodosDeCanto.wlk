@@ -8,7 +8,7 @@ class Palabrero{
 	constructor(unaPalabra){
 		palabra = unaPalabra
 	}
-	method interpretaBien(unCantante,unaCancion){
+	method interpretaBien(unaCancion){
 		return unaCancion.dice(palabra) 
 	}
 

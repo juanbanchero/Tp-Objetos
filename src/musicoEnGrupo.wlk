@@ -5,7 +5,7 @@ class MusicoEnGrupo inherits Musico {
 	
 	var aumentoPorEstarEnGrupo
 	
-	constructor(unaHabilidad,albumesPublicados,unMetodoCanto,unParametroCanto,metodoCobranza,unAumentoPorEstarEnGrupo) = super(unaHabilidad,albumesPublicados,unMetodoCanto,metodoCobranza){
+	constructor(unaHabilidad,albumesPublicados,unMetodoCanto,metodoCobranza,unAumentoPorEstarEnGrupo) = super(unaHabilidad,albumesPublicados,unMetodoCanto,metodoCobranza){
 		aumentoPorEstarEnGrupo = unAumentoPorEstarEnGrupo
 		estaEnGrupo = true
 	}

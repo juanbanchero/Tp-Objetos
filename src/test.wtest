@@ -74,7 +74,7 @@ describe "group of tests" {
 		
 		joaquin = new MusicoEnGrupo(20,#{especialLaFamilia},new Larguero(300),new CobranzaPorExclusividad(100),5)
 		lucia = new MusicoSolista(70,#{},new Palabrero("Familia"),new CobranzaPorCapacidad(500,5000))
-		kike = new MusicoEnGrupo(60,#{},imparero,20,new CobranzaPorExpectativaInflacionaria(4000,8,1,2018,0.5),10)
+		kike = new MusicoEnGrupo(60,#{},imparero,new CobranzaPorExpectativaInflacionaria(4000,8,1,2018,0.5),10)
 		soledad = new MusicoSolista(55,#{laSole},new Palabrero("amor"),new CobranzaPorExclusividad(6000))
 		luisAlberto.agregarAlbum(paraLosArboles)
 		luisAlberto.agregarAlbum(justCrisantemo)
